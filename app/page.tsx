@@ -425,7 +425,7 @@ export default function Home() {
               </svg>
             </div>
           </Link>
-          <div className="grid grid-cols-1 gap-x-10 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             <Link
               href="https://www.promptpoint.ai/"
               target="_blank"
