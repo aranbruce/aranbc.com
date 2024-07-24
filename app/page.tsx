@@ -68,7 +68,7 @@ export default function Home() {
                 <span className="text-sm font-semibold">Crezco</span>
               </Link>
             </span>
-            , building products that make money easy to grow 🌱 the global
+            , building products that make money easy and help grow 🌱 the global
             economy
           </p>
         </div>
