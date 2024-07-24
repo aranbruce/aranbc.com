@@ -19,6 +19,9 @@ const config: Config = {
       dropShadow: {
         card: "0 0px 24px rgba(22, 22, 22, 0.08)",
       },
+      scale: {
+        102: "1.02",
+      },
     },
   },
   plugins: [],

@@ -23,18 +23,22 @@ export default function Home() {
             that make money easy to grow the global economy
           </p>
         </div>
-        <Button variant="primary" size="medium">
+        <Button
+          variant="primary"
+          size="medium"
+          href="mailto:aranbruce@gmail.com"
+        >
           Get in touch
         </Button>
       </Section>
       <Section>
         <h2 className="text-primary text-4xl font-bold">Side projects</h2>
-        <div className="flex w-full flex-col gap-y-10">
+        <div className="flex w-full flex-col gap-y-10 pb-20">
           <Link
             href="https://pal-ai.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="border-tertiary drop-shadow-card grid w-full grid-cols-1 overflow-hidden rounded-xl border bg-white/70 backdrop-blur-sm md:grid-cols-5"
+            className="border-tertiary drop-shadow-card hover:scale-102 grid w-full transform grid-cols-1 overflow-hidden rounded-xl border bg-white/70 backdrop-blur-sm transition md:grid-cols-5"
           >
             <div className="col-span-2 flex flex-col gap-y-2 p-6">
               <h3 className="text-primary text-2xl font-bold">Pal AI</h3>
@@ -430,7 +434,7 @@ export default function Home() {
               href="https://www.promptpoint.ai/"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-tertiary drop-shadow-card grid w-full grid-cols-1 overflow-hidden rounded-xl border bg-white/70 backdrop-blur-sm"
+              className="border-tertiary drop-shadow-card hover:scale-102 grid w-full transform grid-cols-1 overflow-hidden rounded-xl border bg-white/70 backdrop-blur-sm transition"
             >
               <div className="col-span-2 flex flex-col gap-y-2 p-6">
                 <h3 className="text-primary text-2xl font-bold">PromptPoint</h3>
@@ -446,7 +450,7 @@ export default function Home() {
               href="https://wanderai.co.uk/"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-tertiary drop-shadow-card grid w-full grid-cols-1 overflow-hidden rounded-xl border bg-white/70 backdrop-blur-sm"
+              className="border-tertiary drop-shadow-card hover:scale-102 grid w-full transform grid-cols-1 overflow-hidden rounded-xl border bg-white/70 backdrop-blur-sm transition"
             >
               <div className="col-span-2 flex flex-col gap-y-2 p-6">
                 <h3 className="text-primary text-2xl font-bold">WanderAI</h3>
