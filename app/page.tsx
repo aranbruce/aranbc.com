@@ -87,7 +87,7 @@ export default function Home() {
             href="https://pal-ai.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="drop-shadow-card hover:scale-102 grid w-full transform grid-cols-1 overflow-hidden rounded-xl border border-gray-200 bg-white/70 backdrop-blur-sm transition md:grid-cols-5"
+            className="drop-shadow-card hover:scale-102 group grid w-full transform grid-cols-1 overflow-hidden rounded-xl border border-gray-200 bg-white/70 backdrop-blur-sm transition md:grid-cols-5"
           >
             <div className="col-span-2 flex flex-col gap-y-2 p-6">
               <h3 className="text-primary text-2xl font-bold">Pal AI</h3>
@@ -104,6 +104,7 @@ export default function Home() {
                 alt="PalAI website in browser"
                 width={480}
                 height={276}
+                className="group-hover:scale-102 transition"
               />
             </div>
           </Link>
@@ -112,7 +113,7 @@ export default function Home() {
               href="https://www.promptpoint.ai/"
               target="_blank"
               rel="noopener noreferrer"
-              className="drop-shadow-card hover:scale-102 grid w-full transform grid-cols-1 overflow-hidden rounded-xl border border-gray-200 bg-white/70 backdrop-blur-sm transition"
+              className="drop-shadow-card hover:scale-102 group grid w-full transform grid-cols-1 overflow-hidden rounded-xl border border-gray-200 bg-white/70 backdrop-blur-sm transition"
             >
               <div className="col-span-2 flex flex-col gap-y-2 p-6">
                 <h3 className="text-primary text-2xl font-bold">PromptPoint</h3>
@@ -125,10 +126,11 @@ export default function Home() {
               </div>
               <div className="drop-shadow-card col-span-3 mt-auto flex flex-col items-end pl-4 pt-4">
                 <Image
-                  src="/promptpoint.svg"
+                  src="/promptPoint.svg"
                   alt="PromptPoint website in browser"
                   width={480}
                   height={276}
+                  className="group-hover:scale-102 transition"
                 />
               </div>
             </Link>
@@ -136,7 +138,7 @@ export default function Home() {
               href="https://wanderai.co.uk/"
               target="_blank"
               rel="noopener noreferrer"
-              className="drop-shadow-card hover:scale-102 grid w-full transform grid-cols-1 overflow-hidden rounded-xl border border-gray-200 bg-white/70 backdrop-blur-sm transition"
+              className="drop-shadow-card hover:scale-102 group grid w-full transform grid-cols-1 overflow-hidden rounded-xl border border-gray-200 bg-white/70 backdrop-blur-sm transition"
             >
               <div className="col-span-2 flex flex-col gap-y-2 p-6">
                 <h3 className="text-primary text-2xl font-bold">WanderAI</h3>
@@ -149,10 +151,11 @@ export default function Home() {
               </div>
               <div className="drop-shadow-card col-span-3 mt-auto flex flex-col items-end pl-4 pt-4">
                 <Image
-                  src="/wanderAI.svg"
+                  src="/wanderAi.svg"
                   alt="WanderAI website in browser"
                   width={480}
                   height={276}
+                  className="group-hover:scale-102 transition"
                 />
               </div>
             </Link>
