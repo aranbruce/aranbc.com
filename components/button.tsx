@@ -17,7 +17,8 @@ const Button = ({
   onClick,
   children,
 }: ButtonProps) => {
-  const baseClasses = "rounded-full font-semibold transition duration-150";
+  const baseClasses =
+    "flex flex-row gap-x-1 no-wrap rounded-full font-semibold transition duration-150";
   const primaryClasses = "bg-primary text-white hover:bg-primary/80";
   const secondaryClasses =
     "bg-white text-primary border border-gray-200 hover:bg-gray-100";
