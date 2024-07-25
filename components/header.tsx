@@ -9,7 +9,7 @@ export function Header() {
         <Link href="/" className="text-primary">
           <Image src="/logo.svg" alt="Logo" width={90} height={32} />
         </Link>
-        <div className="flex flex-row gap-x-3">
+        <div className="flex flex-row items-center gap-x-3">
           <Button
             variant="secondary"
             size="small"
@@ -22,7 +22,7 @@ export function Header() {
               width={16}
               height={16}
             />
-            LinkedIn
+            <div className="hidden sm:block">LinkedIn</div>
           </Button>
           <Button
             variant="primary"
