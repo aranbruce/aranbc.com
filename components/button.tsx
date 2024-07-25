@@ -20,7 +20,7 @@ const Button = ({
   const baseClasses = "rounded-full font-semibold transition duration-150";
   const primaryClasses = "bg-primary text-white hover:bg-primary/80";
   const secondaryClasses =
-    "bg-white text-primary border border-tertiary hover:bg-gray-100";
+    "bg-white text-primary border border-gray-200 hover:bg-gray-100";
   const smallClasses = "text-sm px-4 py-2.5";
   const mediumClasses = "text-base px-6 py-2.5";
   return href ? (
