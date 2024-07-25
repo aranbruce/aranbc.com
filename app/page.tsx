@@ -2,10 +2,11 @@ import Button from "@/components/button";
 import Section from "@/components/section";
 import Image from "next/image";
 import Link from "next/link";
+import { BlogPosts } from "@/components/blog-posts";
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col">
+    <main className="relative flex min-h-screen flex-col pb-24">
       <div className="divide-secondary/20 absolute inset-0 -z-10 grid grid-cols-4 divide-x divide-dashed bg-gray-100 md:grid-cols-6">
         <div></div>
         <div></div>
@@ -161,6 +162,10 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </Section>
+      <Section>
+        <h2 className="text-primary text-4xl font-bold">Blog</h2>
+        <BlogPosts />
       </Section>
     </main>
   );

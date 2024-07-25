@@ -10,3 +10,124 @@ body {
     @apply subpixel-antialiased;
   }
 }
+
+.prose .anchor {
+  @apply invisible absolute no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose a {
+  @apply decoration-secondary underline decoration-[0.1em] underline-offset-2 transition-all;
+}
+
+.prose .anchor:after {
+  @apply text-secondary;
+  content: "#";
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+.prose hr {
+  @apply mx-auto my-8 max-w-96 border-t border-dashed border-gray-300;
+}
+
+.prose pre {
+  @apply bg-primary/90 overflow-x-auto rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-300;
+}
+
+.prose code {
+  @apply rounded-lg px-1 py-0.5;
+}
+
+.prose pre code {
+  @apply p-0;
+  border: initial;
+  line-height: 1.5;
+}
+
+.prose code span {
+  @apply font-medium;
+}
+
+.prose img {
+  /* Don't apply styles to next/image */
+  @apply mx-auto my-0 rounded-xl;
+}
+
+.prose p {
+  @apply text-secondary my-4 text-lg;
+}
+
+.prose h1 {
+  @apply mb-2 mt-6 text-3xl font-bold;
+}
+
+.prose h2 {
+  @apply mb-2 mt-6 text-2xl font-bold;
+}
+
+.prose h3 {
+  @apply mb-2 mt-6 text-xl font-bold;
+}
+
+.prose h4 {
+  @apply mb-2 mt-6 text-lg font-bold;
+}
+
+.prose strong {
+  @apply font-semibold;
+}
+
+.prose ul {
+  @apply list-disc pl-6;
+}
+
+.prose ol {
+  @apply list-decimal pl-6;
+}
+
+.prose > :first-child {
+  /* Override removing top margin, causing layout shift */
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Remove Safari input shadow on mobile */
+input[type="text"],
+input[type="email"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+table {
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.title {
+  text-wrap: balance;
+  @apply text-4xl font-bold;
+}
