@@ -64,7 +64,7 @@ export default function Blog({ params }: { params: Params }) {
 
   return (
     <section className="flex flex-col items-center">
-      <div className="flex w-full max-w-4xl flex-col items-start px-6 pb-4 pt-48 md:px-12 lg:px-24">
+      <div className="flex w-full max-w-[812px] flex-col items-start px-6 pb-4 pt-48 md:px-12 lg:px-24">
         <script
           type="application/ld+json"
           suppressHydrationWarning
@@ -87,11 +87,11 @@ export default function Blog({ params }: { params: Params }) {
             }),
           }}
         />
-        <h1 className="title text-2xl font-semibold tracking-tighter">
+        <h1 className="title text-2xl font-semibold tracking-tighter text-primary dark:text-white">
           {post.metadata.title}
         </h1>
         <div className="mb-8 mt-2 flex items-center justify-between text-sm">
-          <p className="text-secondary font-medium">
+          <p className="font-semibold text-secondary dark:text-gray-400">
             {formatDate(post.metadata.publishedAt)}
           </p>
         </div>

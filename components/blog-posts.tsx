@@ -5,7 +5,7 @@ export function BlogPosts() {
   let allBlogs = getBlogPosts();
 
   return (
-    <div className="w-full">
+    <div className="flex w-full flex-col gap-y-4">
       {allBlogs
         .sort((a, b) => {
           if (
@@ -18,12 +18,14 @@ export function BlogPosts() {
         .map((post) => (
           <Link
             key={post.slug}
-            className="drop-shadow-card hover:scale-102 flex w-full transform flex-row items-center gap-x-8 overflow-hidden rounded-xl border border-gray-200 bg-white/70 p-4 backdrop-blur-sm transition"
+            className="flex w-full transform flex-row items-center gap-x-8 overflow-hidden rounded-xl border border-gray-200 p-4 drop-shadow-card backdrop-blur-sm transition hover:scale-102 dark:border-secondary/10 dark:bg-gray-900"
             href={`/blog/${post.slug}`}
           >
             <div className="flex w-full flex-col gap-y-2">
-              <h4 className="font-semibold">{post.metadata.title}</h4>
-              <p className="text-secondary text-sm">
+              <h4 className="font-semibold text-primary dark:text-white">
+                {post.metadata.title}
+              </h4>
+              <p className="text-sm text-secondary dark:text-gray-400">
                 {formatDate(post.metadata.publishedAt, false)}
               </p>
             </div>
@@ -33,7 +35,7 @@ export function BlogPosts() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="text-secondary size-6"
+              className="size-6 text-secondary dark:text-gray-400"
             >
               <path
                 strokeLinecap="round"

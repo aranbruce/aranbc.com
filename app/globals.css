@@ -26,11 +26,15 @@ body {
 }
 
 .prose a {
-  @apply decoration-secondary underline decoration-[0.1em] underline-offset-2 transition-all;
+  @apply underline decoration-secondary decoration-[0.1em] underline-offset-4 transition-all dark:decoration-gray-400;
+}
+
+.prose a:hover {
+  @apply text-secondary/50 decoration-secondary/50 dark:text-gray-400/50 dark:decoration-gray-400/50;
 }
 
 .prose .anchor:after {
-  @apply text-secondary;
+  @apply text-primary/20 dark:text-white/20;
   content: "#";
 }
 
@@ -39,11 +43,11 @@ body {
 }
 
 .prose hr {
-  @apply mx-auto my-8 max-w-96 border-t border-dashed border-gray-300;
+  @apply mx-auto my-8 max-w-96 border-t border-dashed border-gray-300 dark:border-secondary;
 }
 
 .prose pre {
-  @apply bg-primary/90 overflow-x-auto rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-300;
+  @apply overflow-x-auto rounded-lg border border-gray-400 bg-gray-200 px-3 py-2 text-sm dark:border-secondary/10 dark:bg-gray-900 dark:text-gray-300;
 }
 
 .prose code {
@@ -57,7 +61,7 @@ body {
 }
 
 .prose code span {
-  @apply font-medium;
+  @apply font-semibold;
 }
 
 .prose img {
@@ -66,35 +70,35 @@ body {
 }
 
 .prose p {
-  @apply text-secondary my-4 text-lg;
+  @apply my-4 leading-7 text-secondary dark:text-gray-400;
 }
 
 .prose h1 {
-  @apply mb-2 mt-6 text-3xl font-bold;
+  @apply mb-2 mt-6 text-3xl font-semibold text-primary dark:text-white;
 }
 
 .prose h2 {
-  @apply mb-2 mt-6 text-2xl font-bold;
+  @apply mb-2 mt-6 text-2xl font-semibold text-primary dark:text-white;
 }
 
 .prose h3 {
-  @apply mb-2 mt-6 text-xl font-bold;
+  @apply mb-2 mt-6 text-xl font-semibold text-primary dark:text-white;
 }
 
 .prose h4 {
-  @apply mb-2 mt-6 text-lg font-bold;
+  @apply mb-2 mt-6 text-lg font-semibold text-primary dark:text-white;
 }
 
 .prose strong {
-  @apply font-semibold;
+  @apply font-semibold leading-7;
 }
 
 .prose ul {
-  @apply list-disc pl-6;
+  @apply list-disc pl-6 text-secondary dark:text-gray-400;
 }
 
 .prose ol {
-  @apply list-decimal pl-6;
+  @apply list-decimal pl-6 text-secondary dark:text-gray-400;
 }
 
 .prose > :first-child {
@@ -128,6 +132,5 @@ table {
 }
 
 .title {
-  text-wrap: balance;
-  @apply text-4xl font-bold;
+  @apply text-pretty text-4xl font-semibold;
 }
