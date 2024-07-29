@@ -18,7 +18,7 @@ export function BlogPosts() {
         .map((post) => (
           <Link
             key={post.slug}
-            className="flex w-full transform flex-row items-center gap-x-8 overflow-hidden rounded-xl border border-gray-200 p-4 drop-shadow-card backdrop-blur-sm transition hover:scale-102 dark:border-secondary/10 dark:bg-gray-900"
+            className="flex w-full transform flex-row items-center gap-x-8 overflow-hidden rounded-xl border border-gray-200 bg-white p-4 drop-shadow-card backdrop-blur-sm transition hover:scale-102 dark:border-secondary/10 dark:bg-gray-900"
             href={`/blog/${post.slug}`}
           >
             <div className="flex w-full flex-col gap-y-2">

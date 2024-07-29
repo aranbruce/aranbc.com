@@ -26,11 +26,11 @@ body {
 }
 
 .prose a {
-  @apply underline decoration-secondary decoration-[0.1em] underline-offset-4 transition-all dark:decoration-gray-400;
+  @apply font-bold text-primary transition-all dark:text-white;
 }
 
 .prose a:hover {
-  @apply text-secondary/50 decoration-secondary/50 dark:text-gray-400/50 dark:decoration-gray-400/50;
+  @apply text-secondary dark:text-gray-400;
 }
 
 .prose .anchor:after {

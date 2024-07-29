@@ -30,7 +30,6 @@ function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
 
 function CustomLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
   const { href, children, ...rest } = props;
-  // let href = props.href;
 
   if (!href) {
     return null;
@@ -51,9 +50,12 @@ function CustomLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
       </a>
     );
   }
-  <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
-    {children}
-  </a>;
+
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
+      {children}
+    </a>
+  );
 }
 
 function RoundedImage(props: ImageProps) {
