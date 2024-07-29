@@ -8,7 +8,11 @@ export function Header() {
   return (
     <nav className="to-transparent fixed z-10 flex w-full flex-col bg-gradient-to-b from-gray-100 px-6 py-2 backdrop-blur-[1px] md:px-12 lg:px-16 dark:from-primary">
       <div className="flex flex-row items-center justify-between">
-        <Link href="/" className="text-primary dark:text-white">
+        <Link
+          href="/"
+          aria-label="Aran Bruce-Caddick logo"
+          className="text-primary dark:text-white"
+        >
           <Logo />
         </Link>
         <div className="flex flex-row items-center gap-x-3">

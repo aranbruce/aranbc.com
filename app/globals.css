@@ -10,3 +10,127 @@ body {
     @apply subpixel-antialiased;
   }
 }
+
+.prose .anchor {
+  @apply invisible absolute no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose a {
+  @apply font-bold text-primary transition-all dark:text-white;
+}
+
+.prose a:hover {
+  @apply text-secondary dark:text-gray-400;
+}
+
+.prose .anchor:after {
+  @apply text-primary/20 dark:text-white/20;
+  content: "#";
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+.prose hr {
+  @apply mx-auto my-8 max-w-96 border-t border-dashed border-gray-300 dark:border-secondary;
+}
+
+.prose pre {
+  @apply overflow-x-auto rounded-lg border border-gray-400 bg-gray-200 px-3 py-2 text-sm dark:border-secondary/10 dark:bg-gray-900 dark:text-gray-300;
+}
+
+.prose code {
+  @apply rounded-lg px-1 py-0.5;
+}
+
+.prose pre code {
+  @apply p-0;
+  border: initial;
+  line-height: 1.5;
+}
+
+.prose code span {
+  @apply font-semibold;
+}
+
+.prose img {
+  /* Don't apply styles to next/image */
+  @apply mx-auto my-0 rounded-xl;
+}
+
+.prose p {
+  @apply my-4 leading-7 text-secondary dark:text-gray-400;
+}
+
+.prose h1 {
+  @apply mb-2 mt-6 text-3xl font-semibold text-primary dark:text-white;
+}
+
+.prose h2 {
+  @apply mb-2 mt-6 text-2xl font-semibold text-primary dark:text-white;
+}
+
+.prose h3 {
+  @apply mb-2 mt-6 text-xl font-semibold text-primary dark:text-white;
+}
+
+.prose h4 {
+  @apply mb-2 mt-6 text-lg font-semibold text-primary dark:text-white;
+}
+
+.prose strong {
+  @apply font-semibold leading-7;
+}
+
+.prose ul {
+  @apply list-disc pl-6 text-secondary dark:text-gray-400;
+}
+
+.prose ol {
+  @apply list-decimal pl-6 text-secondary dark:text-gray-400;
+}
+
+.prose > :first-child {
+  /* Override removing top margin, causing layout shift */
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Remove Safari input shadow on mobile */
+input[type="text"],
+input[type="email"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+table {
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.title {
+  @apply text-pretty text-4xl font-semibold;
+}

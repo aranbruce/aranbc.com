@@ -19,7 +19,17 @@ export default function RootLayout({
     <html lang="en" className="bg-gray-100 dark:bg-primary">
       <body className={urbanist.className}>
         <Header />
-        {children}
+        <div className="relative flex min-h-screen flex-col pb-24">
+          <div className="absolute inset-0 -z-10 grid grid-cols-4 divide-x divide-dashed divide-secondary/20 bg-gray-100 md:grid-cols-6 dark:bg-primary">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div className="hidden md:block"></div>
+            <div className="hidden md:block"></div>
+          </div>
+          {children}
+        </div>
       </body>
     </html>
   );
