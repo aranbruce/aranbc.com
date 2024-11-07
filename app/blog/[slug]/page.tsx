@@ -15,7 +15,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: Params }) {
+export async function generateMetadata(props: { params: Promise<Params> }) {
+  const params = await props.params;
   let post = getBlogPosts().find((post) => post.slug === params.slug);
   if (!post) {
     return;
@@ -55,7 +56,8 @@ export function generateMetadata({ params }: { params: Params }) {
   };
 }
 
-export default function Blog({ params }: { params: Params }) {
+export default async function Blog(props: { params: Promise<Params> }) {
+  const params = await props.params;
   let post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
