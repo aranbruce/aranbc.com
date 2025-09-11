@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 type ButtonProps = {
   variant?: "primary" | "secondary";
@@ -17,27 +18,33 @@ const Button = ({
   onClick,
   children,
 }: ButtonProps) => {
-  const baseClasses =
-    "items-center flex flex-row gap-x-1 no-wrap rounded-full font-semibold transition duration-150";
-  const primaryClasses =
-    "bg-primary text-white hover:bg-primary/80 dark:bg-white dark:text-primary dark:hover:bg-white/70";
-  const secondaryClasses =
-    "bg-white text-primary border border-gray-200 hover:bg-gray-100 dark:bg-gray-900 dark:text-white dark:border-secondary/10 dark:hover:bg-gray-800";
-  const smallClasses = "text-sm px-4 py-2.5";
-  const mediumClasses = "text-base px-6 py-2.5";
+  const className = cn(
+    // Base classes
+    "items-center flex flex-row gap-x-1 no-wrap rounded-full font-semibold transition duration-150",
+    // Variant classes
+    {
+      "bg-primary text-primary-foreground hover:bg-primary/80 border border-ring/20":
+        variant === "primary",
+      "bg-card text-foreground border border-border hover:bg-muted":
+        variant === "secondary",
+    },
+    // Size classes
+    {
+      "text-sm px-4 py-2.5": size === "small",
+      "text-base px-6 py-2.5": size === "medium",
+    },
+  );
+
   return href ? (
     <Link
       href={href}
       target={openInNewTab ? "_blank" : "_self"}
-      className={`${baseClasses} ${variant === "primary" ? primaryClasses : secondaryClasses} ${size === "small" ? smallClasses : mediumClasses}`}
+      className={className}
     >
       {children}
     </Link>
   ) : (
-    <button
-      className={`${baseClasses} ${variant === "primary" ? primaryClasses : secondaryClasses} ${size === "small" ? smallClasses : mediumClasses}`}
-      onClick={onClick}
-    >
+    <button className={className} onClick={onClick}>
       {children}
     </button>
   );

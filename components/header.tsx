@@ -3,15 +3,23 @@ import Button from "./button";
 import Logo from "@/app/images/logo";
 import LinkedInIcon from "@/app/images/linkedin";
 import GithubIcon from "@/app/images/github";
+import { cn } from "@/lib/utils";
 
 export function Header() {
   return (
-    <nav className="to-transparent fixed z-10 flex w-full flex-col bg-gradient-to-b from-gray-100 px-6 py-2 backdrop-blur-[1px] md:px-12 lg:px-16 dark:from-primary">
-      <div className="flex flex-row items-center justify-between">
+    <nav
+      className={cn(
+        // Base layout
+        "fixed z-10 flex w-full flex-col items-center px-6 py-2 md:px-12 lg:px-16",
+        // Visual effects
+        "backdrop-blur-[1px]",
+      )}
+    >
+      <div className="flex w-full max-w-5xl flex-row items-center justify-between">
         <Link
           href="/"
           aria-label="Aran Bruce-Caddick logo"
-          className="text-primary dark:text-white"
+          className="text-foreground"
         >
           <Logo />
         </Link>
