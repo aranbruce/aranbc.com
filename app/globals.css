@@ -219,3 +219,15 @@ table {
 .title {
   @apply text-4xl font-semibold text-pretty;
 }
+
+.divide-dashed-spaced > * + * {
+  border-left: 0.5px dashed var(--color-border);
+  border-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 4px,
+      var(--color-border) 4px,
+      var(--color-border) 8px
+    )
+    1;
+}

@@ -23,7 +23,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Header />
           <div className="page-background relative flex min-h-screen flex-col">
-            <div className="divide-border absolute inset-0 z-0 grid grid-cols-4 divide-x divide-dashed md:grid-cols-6">
+            <div className="divide-dashed-spaced absolute inset-0 z-0 grid grid-cols-4 md:grid-cols-6">
               <div></div>
               <div></div>
               <div></div>
