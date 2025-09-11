@@ -7,7 +7,7 @@ export default function NotFound() {
         <h1 className="text-foreground text-3xl font-semibold">
           🤷 Something went wrong
         </h1>
-        <p className="text-secondary">
+        <p className="text-secondary-foreground">
           The page you're looking for doesn't exist or has been moved
         </p>
       </div>

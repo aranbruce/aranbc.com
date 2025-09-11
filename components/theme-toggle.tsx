@@ -21,7 +21,7 @@ export function ThemeToggle() {
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className={cn(
-        "focus-visible:ring-ring focus-visible:ring-offset-background relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+        "focus-visible:ring-ring focus-visible:ring-offset-background relative inline-flex h-7 w-12 items-center rounded-full border transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none",
         theme === "dark" ? "bg-primary" : "bg-muted",
       )}
       role="switch"
@@ -30,7 +30,7 @@ export function ThemeToggle() {
     >
       <span
         className={cn(
-          "bg-background inline-block h-4 w-4 transform rounded-full transition-transform",
+          "bg-background inline-block size-5 transform rounded-full transition-transform",
           theme === "dark" ? "translate-x-6" : "translate-x-1",
         )}
       />

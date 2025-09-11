@@ -7,6 +7,7 @@ interface ProjectCardProps {
   title: string;
   description: string;
   image: ReactNode;
+  layout?: "horizontal" | "vertical";
   className?: string;
 }
 
@@ -15,8 +16,11 @@ export function ProjectCard({
   title,
   description,
   image,
+  layout = "horizontal",
   className,
 }: ProjectCardProps) {
+  const isHorizontal = layout === "horizontal";
+
   return (
     <Link
       href={href}
@@ -24,20 +28,30 @@ export function ProjectCard({
       rel="noopener noreferrer"
       className={cn(
         // Base styles
-        "group grid w-full transform grid-cols-1 overflow-hidden rounded-xl transition hover:scale-102",
+        "group w-full transform overflow-hidden rounded-xl transition hover:scale-102",
         // Layout & visual
-        "border-border bg-background/70 border drop-shadow-card backdrop-blur-sm",
-        // Responsive
-        "md:grid-cols-5",
+        "border-border bg-card drop-shadow-card border backdrop-blur-xs",
+        // Layout-specific styles
+        isHorizontal ? "grid grid-cols-1 md:grid-cols-3" : "flex flex-col",
         // Custom className override
         className,
       )}
     >
-      <div className="col-span-2 flex flex-col gap-y-2 p-6">
+      <div
+        className={cn(
+          "flex flex-col gap-y-2 p-6",
+          isHorizontal ? "col-span-2" : "",
+        )}
+      >
         <h3 className="text-foreground text-2xl font-semibold">{title}</h3>
-        <p className="text-secondary">{description}</p>
+        <p className="text-secondary-foreground">{description}</p>
       </div>
-      <div className="col-span-3 mt-auto flex flex-col items-end pl-4 pt-4 drop-shadow-card">
+      <div
+        className={cn(
+          "drop-shadow-card flex flex-col items-end",
+          isHorizontal ? "col-span-3 mt-auto pt-4 pl-4" : "px-6 pt-0 pb-6",
+        )}
+      >
         {image}
       </div>
     </Link>

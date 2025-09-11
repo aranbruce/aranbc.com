@@ -1,34 +1,83 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius: var(--radius);
+  --drop-shadow-card: 0 0px 24px rgba(22, 22, 22, 0.08);
+  --scale-102: 1.02;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 @layer base {
   :root {
-    --background: 242 242 243; /* #F2F2F3 */
-    --foreground: 22 22 22; /* #161616 */
-    --primary: 22 22 22; /* #161616 */
-    --primary-foreground: 255 255 255; /* #ffffff */
-    --secondary: 84 84 92; /* #54545C */
-    --secondary-foreground: 22 22 22; /* #161616 */
-    --muted: 229 229 230; /* #E5E5E6 */
-    --muted-foreground: 84 84 92; /* #54545C */
-    --border: 229 229 230; /* #E5E5E6 */
-    --input: 229 229 230; /* #E5E5E6 */
-    --ring: 22 22 22; /* #161616 */
+    --radius: 0.65rem;
+    --background: oklch(1 0 0);
+    --page-background: linear-gradient(
+      to bottom,
+      oklch(1 0 0),
+      oklch(0.99 0 0)
+    );
+    --foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.6 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --card: oklch(1 0 0);
   }
 
   .dark {
-    --background: 22 22 22; /* #161616 */
-    --foreground: 255 255 255; /* #ffffff */
-    --primary: 255 255 255; /* #ffffff */
-    --primary-foreground: 22 22 22; /* #161616 */
-    --secondary: 84 84 92; /* #54545C */
-    --secondary-foreground: 255 255 255; /* #ffffff */
-    --muted: 34 34 58; /* #222225 */
-    --muted-foreground: 190 190 198; /* #BEBEC6 */
-    --border: 84 84 92; /* #54545C */
-    --input: 54 54 58; /* #36363A */
-    --ring: 255 255 255; /* #ffffff */
+    --background: oklch(0.145 0 0);
+    --page-background: linear-gradient(to bottom, rgb(22 22 22), rgb(22 22 22));
+    --foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.8 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --card: oklch(0.2 0 0);
   }
 
   * {
@@ -37,6 +86,10 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  .page-background {
+    background: var(--page-background);
   }
 }
 
@@ -59,7 +112,7 @@
 }
 
 .prose a:hover {
-  @apply text-secondary;
+  @apply text-secondary-foreground;
 }
 
 .prose .anchor:after {
@@ -99,35 +152,35 @@
 }
 
 .prose p {
-  @apply my-4 leading-7 text-secondary;
+  @apply text-secondary-foreground my-4 leading-7;
 }
 
 .prose h1 {
-  @apply text-foreground mb-2 mt-6 text-3xl font-semibold;
+  @apply text-foreground mt-6 mb-2 text-3xl font-semibold;
 }
 
 .prose h2 {
-  @apply text-foreground mb-2 mt-6 text-2xl font-semibold;
+  @apply text-foreground mt-6 mb-2 text-2xl font-semibold;
 }
 
 .prose h3 {
-  @apply text-foreground mb-2 mt-6 text-xl font-semibold;
+  @apply text-foreground mt-6 mb-2 text-xl font-semibold;
 }
 
 .prose h4 {
-  @apply text-foreground mb-2 mt-6 text-lg font-semibold;
+  @apply text-foreground mt-6 mb-2 text-lg font-semibold;
 }
 
 .prose strong {
-  @apply font-semibold leading-7;
+  @apply leading-7 font-semibold;
 }
 
 .prose ul {
-  @apply list-disc pl-6 text-secondary;
+  @apply text-secondary-foreground list-disc pl-6;
 }
 
 .prose ol {
-  @apply list-decimal pl-6 text-secondary;
+  @apply text-secondary-foreground list-decimal pl-6;
 }
 
 .prose > :first-child {
@@ -161,5 +214,5 @@ table {
 }
 
 .title {
-  @apply text-pretty text-4xl font-semibold;
+  @apply text-4xl font-semibold text-pretty;
 }

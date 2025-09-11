@@ -23,7 +23,7 @@ export function BlogPosts() {
               // Base layout
               "flex w-full transform flex-row items-center gap-x-8 overflow-hidden rounded-xl p-4 transition hover:scale-102",
               // Visual styling
-              "border-border bg-background border drop-shadow-card backdrop-blur-sm",
+              "border-border bg-card drop-shadow-card border backdrop-blur-xs",
             )}
             href={`/blog/${post.slug}`}
           >
@@ -31,7 +31,7 @@ export function BlogPosts() {
               <h4 className="text-foreground font-semibold">
                 {post.metadata.title}
               </h4>
-              <p className="text-sm text-secondary">
+              <p className="text-secondary-foreground text-sm">
                 {formatDate(post.metadata.publishedAt, false)}
               </p>
             </div>
@@ -41,7 +41,7 @@ export function BlogPosts() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="size-6 text-secondary"
+              className="text-secondary-foreground size-6"
             >
               <path
                 strokeLinecap="round"

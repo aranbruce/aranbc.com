@@ -3,7 +3,6 @@ import Button from "./button";
 import Logo from "@/app/images/logo";
 import LinkedInIcon from "@/app/images/linkedin";
 import GithubIcon from "@/app/images/github";
-import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -13,7 +12,7 @@ export function Header() {
         // Base layout
         "fixed z-10 flex w-full flex-col px-6 py-2 md:px-12 lg:px-16",
         // Visual effects
-        "from-background to-transparent bg-gradient-to-b backdrop-blur-[1px]",
+        "backdrop-blur-[1px]",
       )}
     >
       <div className="flex flex-row items-center justify-between">
@@ -25,7 +24,6 @@ export function Header() {
           <Logo />
         </Link>
         <div className="flex flex-row items-center gap-x-3">
-          <ThemeToggle />
           <Button
             variant="secondary"
             size="small"

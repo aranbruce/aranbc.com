@@ -23,7 +23,7 @@ const Button = ({
     "items-center flex flex-row gap-x-1 no-wrap rounded-full font-semibold transition duration-150",
     // Variant classes
     {
-      "bg-primary text-primary-foreground hover:bg-primary/80 border border-ring/20":
+      "bg-primary text-primary-foreground hover:bg-primary/80 border border-ring/20 border":
         variant === "primary",
       "bg-background text-foreground border border-border hover:bg-muted":
         variant === "secondary",
