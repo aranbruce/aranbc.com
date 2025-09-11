@@ -7,7 +7,7 @@ export function Footer() {
     <footer
       className={cn(
         // Layout
-        "z-10 flex w-full flex-col items-center gap-y-6 px-6 py-8 md:px-12 lg:px-1",
+        "z-10 flex w-full flex-col items-center gap-y-6 px-6 py-8 md:px-12 lg:px-16",
         // Visual
       )}
     >
