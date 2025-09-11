@@ -18,6 +18,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-card: var(--card);
 
   --radius: var(--radius);
   --drop-shadow-card: 0 0px 24px rgba(22, 22, 22, 0.08);
@@ -66,7 +67,7 @@
 
   .dark {
     --background: oklch(0.145 0 0);
-    --page-background: linear-gradient(to bottom, rgb(22 22 22), rgb(22 22 22));
+    --page-background: linear-gradient(to bottom, rgb(12 12 12), rgb(0 0 0));
     --foreground: oklch(0.985 0 0);
     --primary: oklch(0.922 0 0);
     --primary-foreground: oklch(0.205 0 0);
@@ -74,10 +75,10 @@
     --secondary-foreground: oklch(0.8 0 0);
     --muted: oklch(0.269 0 0);
     --muted-foreground: oklch(0.708 0 0);
-    --border: oklch(1 0 0 / 10%);
+    --border: oklch(1 0 0 / 5%);
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.556 0 0);
-    --card: oklch(0.2 0 0);
+    --card: oklch(0.22 0 0);
   }
 
   * {

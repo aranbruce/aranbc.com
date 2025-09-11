@@ -25,7 +25,7 @@ const Button = ({
     {
       "bg-primary text-primary-foreground hover:bg-primary/80 border border-ring/20 border":
         variant === "primary",
-      "bg-background text-foreground border border-border hover:bg-muted":
+      "bg-card text-foreground border border-border hover:bg-muted":
         variant === "secondary",
     },
     // Size classes
