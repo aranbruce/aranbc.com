@@ -23,6 +23,14 @@ export default function RootLayout({
         <ThemeProvider>
           <Header />
           <div className="page-background relative flex min-h-screen flex-col">
+            <div className="divide-border absolute inset-0 z-0 grid grid-cols-4 divide-x divide-dashed md:grid-cols-6">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div className="hidden md:block"></div>
+              <div className="hidden md:block"></div>
+            </div>
             <main className="flex-1 pb-24">{children}</main>
             <Footer />
           </div>

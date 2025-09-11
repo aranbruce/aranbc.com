@@ -10,12 +10,12 @@ export function Header() {
     <nav
       className={cn(
         // Base layout
-        "fixed z-10 flex w-full flex-col px-6 py-2 md:px-12 lg:px-16",
+        "fixed z-10 flex w-full flex-col items-center px-6 py-2 md:px-12 lg:px-16",
         // Visual effects
         "backdrop-blur-[1px]",
       )}
     >
-      <div className="flex flex-row items-center justify-between">
+      <div className="flex w-full max-w-5xl flex-row items-center justify-between">
         <Link
           href="/"
           aria-label="Aran Bruce-Caddick logo"
