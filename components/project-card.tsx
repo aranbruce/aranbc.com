@@ -48,8 +48,7 @@ export function ProjectCard({
       </div>
       <div
         className={cn(
-          "drop-shadow-card flex flex-col items-end",
-          isHorizontal ? "col-span-3 mt-auto pt-4 pl-4" : "px-6 pt-0 pb-6",
+          "drop-shadow-card col-span-3 mt-auto flex flex-col items-end pt-4 pl-4",
         )}
       >
         {image}

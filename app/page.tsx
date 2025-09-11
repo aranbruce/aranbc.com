@@ -16,8 +16,9 @@ export default function Home() {
             src="/aran.png"
             alt="Aran Bruce-Caddick"
             width={160}
-            height={180}
-            className="-mt-10 w-40"
+            height={160}
+            priority
+            className="-mt-10 w-auto"
           />
           <div className="flex flex-col items-start gap-y-6">
             <div className="flex flex-col gap-y-3">
@@ -60,14 +61,14 @@ export default function Home() {
         </h2>
         <div className="flex w-full flex-col gap-y-10 pb-20">
           <ProjectCard
-            href="https://pal-ai.vercel.app/"
-            title="Pal AI"
-            description="Pal AI is a multi-LLM chatbot designed to assist you with a variety of tasks. From searching the web, to checking the weather forecast, and even finding the perfect gif, Pal AI is her to make your life easier"
+            href="https://prdraft.ai/"
+            title="PRDraft AI"
+            description="PRDraft AI is an AI-powered writing assistant, designed to help you create high-quality Product Requirement Documents (PRDs) in a fraction of the time"
             layout="horizontal"
             image={
               <Image
-                src="/palAi.svg"
-                alt="PalAI website in browser"
+                src="/prdraftAi.svg"
+                alt="PRDraft AI website in browser"
                 width={480}
                 height={276}
                 className="transition group-hover:scale-102"
@@ -75,6 +76,7 @@ export default function Home() {
             }
             className="md:grid-cols-5"
           />
+
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             <ProjectCard
               href="https://www.promptpoint.ai/"
@@ -107,6 +109,23 @@ export default function Home() {
               }
             />
           </div>
+          <ProjectCard
+            href="https://pal-ai.vercel.app/"
+            title="Pal AI"
+            description="Pal AI is a multi-LLM chatbot designed to assist you with a variety of tasks. From searching the web, to checking the weather forecast, and even finding the perfect gif, Pal AI is her to make your life easier"
+            layout="horizontal"
+            image={
+              <Image
+                src="/palAi.svg"
+                alt="PalAI website in browser"
+                priority
+                width={480}
+                height={276}
+                className="transition group-hover:scale-102"
+              />
+            }
+            className="md:grid-cols-5"
+          />
         </div>
       </Section>
       <Section>

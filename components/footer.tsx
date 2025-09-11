@@ -11,7 +11,7 @@ export function Footer() {
         // Visual
       )}
     >
-      <div className="flex w-full max-w-5xl flex-col items-start justify-between gap-y-4 md:flex-row md:items-center">
+      <div className="flex w-full max-w-5xl flex-row items-start justify-between gap-y-4 md:items-center">
         <div className="flex flex-col gap-y-2">
           <p className="text-foreground text-sm font-medium">
             Aran Bruce-Caddick
