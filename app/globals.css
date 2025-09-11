@@ -2,12 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-}
-
 @layer base {
+  :root {
+    --background: 242 242 243; /* #F2F2F3 */
+    --foreground: 22 22 22; /* #161616 */
+    --primary: 22 22 22; /* #161616 */
+    --primary-foreground: 255 255 255; /* #ffffff */
+    --secondary: 84 84 92; /* #54545C */
+    --secondary-foreground: 22 22 22; /* #161616 */
+    --muted: 229 229 230; /* #E5E5E6 */
+    --muted-foreground: 84 84 92; /* #54545C */
+    --border: 229 229 230; /* #E5E5E6 */
+    --input: 229 229 230; /* #E5E5E6 */
+    --ring: 22 22 22; /* #161616 */
+  }
+
+  .dark {
+    --background: 22 22 22; /* #161616 */
+    --foreground: 255 255 255; /* #ffffff */
+    --primary: 255 255 255; /* #ffffff */
+    --primary-foreground: 22 22 22; /* #161616 */
+    --secondary: 84 84 92; /* #54545C */
+    --secondary-foreground: 255 255 255; /* #ffffff */
+    --muted: 34 34 58; /* #222225 */
+    --muted-foreground: 190 190 198; /* #BEBEC6 */
+    --border: 84 84 92; /* #54545C */
+    --input: 54 54 58; /* #36363A */
+    --ring: 255 255 255; /* #ffffff */
+  }
+
   * {
     @apply subpixel-antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
@@ -26,15 +55,15 @@ body {
 }
 
 .prose a {
-  @apply font-bold text-primary transition-all dark:text-white;
+  @apply text-foreground font-bold transition-all;
 }
 
 .prose a:hover {
-  @apply text-secondary dark:text-gray-400;
+  @apply text-secondary;
 }
 
 .prose .anchor:after {
-  @apply text-primary/20 dark:text-white/20;
+  @apply text-foreground/20;
   content: "#";
 }
 
@@ -43,11 +72,11 @@ body {
 }
 
 .prose hr {
-  @apply mx-auto my-8 max-w-96 border-t border-dashed border-gray-300 dark:border-secondary;
+  @apply border-border mx-auto my-8 max-w-96 border-t border-dashed;
 }
 
 .prose pre {
-  @apply overflow-x-auto rounded-lg border border-gray-400 bg-gray-200 px-3 py-2 text-sm dark:border-secondary/10 dark:bg-gray-900 dark:text-gray-300;
+  @apply border-border bg-muted text-muted-foreground overflow-x-auto rounded-lg border px-3 py-2 text-sm;
 }
 
 .prose code {
@@ -70,23 +99,23 @@ body {
 }
 
 .prose p {
-  @apply my-4 leading-7 text-secondary dark:text-gray-400;
+  @apply my-4 leading-7 text-secondary;
 }
 
 .prose h1 {
-  @apply mb-2 mt-6 text-3xl font-semibold text-primary dark:text-white;
+  @apply text-foreground mb-2 mt-6 text-3xl font-semibold;
 }
 
 .prose h2 {
-  @apply mb-2 mt-6 text-2xl font-semibold text-primary dark:text-white;
+  @apply text-foreground mb-2 mt-6 text-2xl font-semibold;
 }
 
 .prose h3 {
-  @apply mb-2 mt-6 text-xl font-semibold text-primary dark:text-white;
+  @apply text-foreground mb-2 mt-6 text-xl font-semibold;
 }
 
 .prose h4 {
-  @apply mb-2 mt-6 text-lg font-semibold text-primary dark:text-white;
+  @apply text-foreground mb-2 mt-6 text-lg font-semibold;
 }
 
 .prose strong {
@@ -94,11 +123,11 @@ body {
 }
 
 .prose ul {
-  @apply list-disc pl-6 text-secondary dark:text-gray-400;
+  @apply list-disc pl-6 text-secondary;
 }
 
 .prose ol {
-  @apply list-decimal pl-6 text-secondary dark:text-gray-400;
+  @apply list-decimal pl-6 text-secondary;
 }
 
 .prose > :first-child {

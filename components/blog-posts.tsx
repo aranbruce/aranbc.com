@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatDate, getBlogPosts } from "@/app/blog/utils";
+import { cn } from "@/lib/utils";
 
 export function BlogPosts() {
   let allBlogs = getBlogPosts();
@@ -18,14 +19,19 @@ export function BlogPosts() {
         .map((post) => (
           <Link
             key={post.slug}
-            className="flex w-full transform flex-row items-center gap-x-8 overflow-hidden rounded-xl border border-gray-200 bg-white p-4 drop-shadow-card backdrop-blur-sm transition hover:scale-102 dark:border-secondary/10 dark:bg-gray-900"
+            className={cn(
+              // Base layout
+              "flex w-full transform flex-row items-center gap-x-8 overflow-hidden rounded-xl p-4 transition hover:scale-102",
+              // Visual styling
+              "border-border bg-background border drop-shadow-card backdrop-blur-sm",
+            )}
             href={`/blog/${post.slug}`}
           >
             <div className="flex w-full flex-col gap-y-2">
-              <h4 className="font-semibold text-primary dark:text-white">
+              <h4 className="text-foreground font-semibold">
                 {post.metadata.title}
               </h4>
-              <p className="text-sm text-secondary dark:text-gray-400">
+              <p className="text-sm text-secondary">
                 {formatDate(post.metadata.publishedAt, false)}
               </p>
             </div>
@@ -35,7 +41,7 @@ export function BlogPosts() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="size-6 text-secondary dark:text-gray-400"
+              className="size-6 text-secondary"
             >
               <path
                 strokeLinecap="round"

@@ -3,6 +3,7 @@ import Image, { ImageProps } from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 import React from "react";
+import { cn } from "@/lib/utils";
 
 function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
   let headers = data.headers.map((header: string, index: number) => (
@@ -59,8 +60,8 @@ function CustomLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
 }
 
 function RoundedImage(props: ImageProps) {
-  const { alt, ...rest } = props;
-  return <Image alt={alt} className="rounded-lg" {...rest} />;
+  const { alt, className, ...rest } = props;
+  return <Image alt={alt} className={cn("rounded-lg", className)} {...rest} />;
 }
 
 function Code({

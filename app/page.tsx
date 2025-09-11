@@ -10,10 +10,10 @@ export default function Home() {
     <main className="relative flex min-h-screen flex-col pb-24">
       <Section>
         <div className="flex flex-col gap-y-3">
-          <h1 className="text-4xl font-semibold text-primary dark:text-white">
+          <h1 className="text-foreground text-4xl font-semibold">
             👋 Hi I'm Aran
           </h1>
-          <p className="text-lg text-secondary dark:text-gray-400">
+          <p className="text-lg text-secondary">
             I'm a product builder 🛠️, code enthusiast 🧑‍💻 and data nerd 🤓 who's
             deeply AI-curious. I currently work at{" "}
             <span>
@@ -21,7 +21,7 @@ export default function Home() {
                 href="https://www.crezco.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-md border border-gray-300 bg-gray-200 px-1 pb-0.5 transition hover:bg-white dark:border-secondary dark:bg-gray-800 dark:hover:bg-secondary"
+                className="border-border bg-muted hover:bg-background rounded-md border px-1 pb-0.5 transition"
               >
                 <CrezcoIcon />
                 <span className="text-sm font-semibold">Crezco</span>
@@ -40,7 +40,7 @@ export default function Home() {
         </Button>
       </Section>
       <Section>
-        <h2 className="text-4xl font-semibold text-primary dark:text-white">
+        <h2 className="text-foreground text-4xl font-semibold">
           Side projects
         </h2>
         <div className="flex w-full flex-col gap-y-10 pb-20">
@@ -48,13 +48,11 @@ export default function Home() {
             href="https://pal-ai.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group grid w-full transform grid-cols-1 overflow-hidden rounded-xl border border-gray-200 bg-white/70 drop-shadow-card backdrop-blur-sm transition hover:scale-102 md:grid-cols-5 dark:border-secondary/10 dark:bg-gray-900"
+            className="border-border bg-background/70 group grid w-full transform grid-cols-1 overflow-hidden rounded-xl border drop-shadow-card backdrop-blur-sm transition hover:scale-102 md:grid-cols-5"
           >
             <div className="col-span-2 flex flex-col gap-y-2 p-6">
-              <h3 className="text-2xl font-semibold text-primary dark:text-white">
-                Pal AI
-              </h3>
-              <p className="text-secondary dark:text-gray-400">
+              <h3 className="text-foreground text-2xl font-semibold">Pal AI</h3>
+              <p className="text-secondary">
                 Pal AI is a multi-LLM chatbot designed to assist you with a
                 variety of tasks. From searching the web, to checking the
                 weather forecast, and even finding the perfect gif, Pal AI is
@@ -76,13 +74,13 @@ export default function Home() {
               href="https://www.promptpoint.ai/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group grid w-full transform grid-cols-1 overflow-hidden rounded-xl border border-gray-200 bg-white/70 drop-shadow-card backdrop-blur-sm transition hover:scale-102 dark:border-secondary/10 dark:bg-gray-900"
+              className="border-border bg-background/70 group grid w-full transform grid-cols-1 overflow-hidden rounded-xl border drop-shadow-card backdrop-blur-sm transition hover:scale-102"
             >
               <div className="col-span-2 flex flex-col gap-y-2 p-6">
-                <h3 className="text-2xl font-semibold text-primary dark:text-white">
+                <h3 className="text-foreground text-2xl font-semibold">
                   PromptPoint
                 </h3>
-                <p className="text-secondary dark:text-gray-400">
+                <p className="text-secondary">
                   PromptPoint helps teams turbo charge their prompt engineering
                   by empowering them to seamlessly organise their prompts and
                   automate the running tests to evaluate the responses they
@@ -103,13 +101,13 @@ export default function Home() {
               href="https://wanderai.co.uk/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group grid w-full transform grid-cols-1 overflow-hidden rounded-xl border border-gray-200 bg-white/70 drop-shadow-card backdrop-blur-sm transition hover:scale-102 dark:border-secondary/10 dark:bg-gray-900"
+              className="border-border bg-background/70 group grid w-full transform grid-cols-1 overflow-hidden rounded-xl border drop-shadow-card backdrop-blur-sm transition hover:scale-102"
             >
               <div className="col-span-2 flex flex-col gap-y-2 p-6">
-                <h3 className="text-2xl font-semibold text-primary dark:text-white">
+                <h3 className="text-foreground text-2xl font-semibold">
                   WanderAI
                 </h3>
-                <p className="text-secondary dark:text-gray-400">
+                <p className="text-secondary">
                   Love travel, hate planning? WanderAI can help you plan your
                   next adventure in seconds. Simply provide a destination, your
                   interests and the duration of your stay and WanderAI does the
@@ -130,9 +128,7 @@ export default function Home() {
         </div>
       </Section>
       <Section>
-        <h2 className="text-4xl font-semibold text-primary dark:text-white">
-          Read my blog
-        </h2>
+        <h2 className="text-foreground text-4xl font-semibold">Read my blog</h2>
         <BlogPosts />
       </Section>
     </main>

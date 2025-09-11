@@ -89,11 +89,11 @@ export default async function Blog(props: { params: Promise<Params> }) {
             }),
           }}
         />
-        <h1 className="title text-2xl font-semibold tracking-tighter text-primary dark:text-white">
+        <h1 className="title text-foreground text-2xl font-semibold tracking-tighter">
           {post.metadata.title}
         </h1>
         <div className="mb-8 mt-2 flex items-center justify-between text-sm">
-          <p className="font-semibold text-secondary dark:text-gray-400">
+          <p className="font-semibold text-secondary">
             {formatDate(post.metadata.publishedAt)}
           </p>
         </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
@@ -16,20 +17,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-gray-100 dark:bg-primary">
+    <html lang="en" suppressHydrationWarning>
       <body className={urbanist.className}>
-        <Header />
-        <div className="relative flex min-h-screen flex-col pb-24">
-          <div className="absolute inset-0 -z-10 grid grid-cols-4 divide-x divide-dashed divide-secondary/20 bg-gray-100 md:grid-cols-6 dark:bg-primary">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div className="hidden md:block"></div>
-            <div className="hidden md:block"></div>
+        <ThemeProvider>
+          <Header />
+          <div className="relative flex min-h-screen flex-col pb-24">
+            {/* <div className="divide-border bg-background absolute inset-0 -z-10 grid grid-cols-4 divide-x divide-dashed md:grid-cols-6">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div className="hidden md:block"></div>
+              <div className="hidden md:block"></div>
+            </div> */}
+            {children}
           </div>
-          {children}
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );
