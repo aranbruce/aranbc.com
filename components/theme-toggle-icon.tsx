@@ -1,14 +1,10 @@
 "use client";
 
 import * as React from "react";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/hooks/use-theme";
 
 export function ThemeToggleIcon() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
+  const { theme, setTheme, mounted } = useTheme();
 
   if (!mounted) {
     return null;

@@ -61,10 +61,9 @@ export default function RootLayout({
           <Header />
           {/* Fade mask overlay */}
           <div
-            className="fade-mask pointer-events-none fixed top-0 left-0 z-5 w-full"
+            className="fade-mask pointer-events-none fixed top-0 left-0 z-5 h-14 w-full"
             style={
               {
-                height: "var(--static-space-80, 58px)",
                 "--base-color": "var(--page-background)",
                 "--gradient-direction": "180deg",
               } as React.CSSProperties
