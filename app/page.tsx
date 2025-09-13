@@ -26,8 +26,8 @@ export default function Home() {
                 Hi I&apos;m Aran
               </h1>
               <p className="text-secondary-foreground text-lg">
-                I&apos;m a product builder 🛠️, code enthusiast 🧑‍💻 and data nerd 🤓
-                who&apos;s deeply AI-curious. I currently work at{" "}
+                I&apos;m a product builder 🛠️, code enthusiast 🧑‍💻 and data nerd
+                🤓 who&apos;s deeply AI-curious. I currently work at{" "}
                 <span>
                   <Link
                     href="https://www.crezco.com/"

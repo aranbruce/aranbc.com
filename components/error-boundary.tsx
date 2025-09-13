@@ -31,15 +31,17 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         this.props.fallback || (
           <div className="flex min-h-[400px] flex-col items-center justify-center gap-4 p-8 text-center">
-            <h2 className="text-2xl font-semibold text-foreground">
+            <h2 className="text-foreground text-2xl font-semibold">
               Something went wrong
             </h2>
             <p className="text-secondary-foreground">
               An error occurred while loading this content.
             </p>
             <button
-              onClick={() => this.setState({ hasError: false, error: undefined })}
-              className="rounded-md bg-primary px-4 py-2 text-primary-foreground transition hover:bg-primary/80"
+              onClick={() =>
+                this.setState({ hasError: false, error: undefined })
+              }
+              className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-md px-4 py-2 transition"
             >
               Try again
             </button>

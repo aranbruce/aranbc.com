@@ -5,11 +5,11 @@ import type { BlogMetadata, BlogPost } from "@/types/blog";
 function parseFrontmatter(fileContent: string) {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);
-  
+
   if (!match || !match[1]) {
     throw new Error("No frontmatter found in file");
   }
-  
+
   const frontMatterBlock = match[1];
   const content = fileContent.replace(frontmatterRegex, "").trim();
   const frontMatterLines = frontMatterBlock.trim().split("\n");
@@ -18,7 +18,7 @@ function parseFrontmatter(fileContent: string) {
   frontMatterLines.forEach((line) => {
     const [key, ...valueArr] = line.split(": ");
     if (!key) return;
-    
+
     let value = valueArr.join(": ").trim();
     value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
     metadata[key.trim() as keyof BlogMetadata] = value;

@@ -9,8 +9,15 @@ const urbanist = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Aran Bruce-Caddick | Personal Website",
-  description: "Aran Bruce-Caddick's personal website - Product builder, code enthusiast and data nerd who's deeply AI-curious",
-  keywords: ["Aran Bruce-Caddick", "product builder", "developer", "AI", "Crezco"],
+  description:
+    "Aran Bruce-Caddick's personal website - Product builder, code enthusiast and data nerd who's deeply AI-curious",
+  keywords: [
+    "Aran Bruce-Caddick",
+    "product builder",
+    "developer",
+    "AI",
+    "Crezco",
+  ],
   authors: [{ name: "Aran Bruce-Caddick" }],
   creator: "Aran Bruce-Caddick",
   metadataBase: new URL("https://www.aranbc.com"),
@@ -19,13 +26,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.aranbc.com",
     title: "Aran Bruce-Caddick | Personal Website",
-    description: "Product builder, code enthusiast and data nerd who's deeply AI-curious",
+    description:
+      "Product builder, code enthusiast and data nerd who's deeply AI-curious",
     siteName: "Aran Bruce-Caddick",
   },
   twitter: {
     card: "summary_large_image",
     title: "Aran Bruce-Caddick | Personal Website",
-    description: "Product builder, code enthusiast and data nerd who's deeply AI-curious",
+    description:
+      "Product builder, code enthusiast and data nerd who's deeply AI-curious",
   },
   robots: {
     index: true,
