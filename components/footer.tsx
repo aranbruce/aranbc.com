@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 

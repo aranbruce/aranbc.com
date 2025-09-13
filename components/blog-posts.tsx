@@ -3,7 +3,7 @@ import { formatDate, getBlogPosts } from "@/app/blog/utils";
 import { cn } from "@/lib/utils";
 
 export function BlogPosts() {
-  let allBlogs = getBlogPosts();
+  const allBlogs = getBlogPosts();
 
   return (
     <div className="flex w-full flex-col gap-y-4">

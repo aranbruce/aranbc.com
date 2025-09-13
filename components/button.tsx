@@ -39,6 +39,7 @@ const Button = ({
     <Link
       href={href}
       target={openInNewTab ? "_blank" : "_self"}
+      rel={openInNewTab ? "noopener noreferrer" : undefined}
       className={className}
     >
       {children}
