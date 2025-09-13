@@ -1,8 +1,8 @@
 import { ImageResponse } from "next/og";
 
-export function GET(request: Request) {
-  let url = new URL(request.url);
-  let title = url.searchParams.get("title") || "Next.js Portfolio Starter";
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const title = searchParams.get("title") ?? "Aran Bruce-Caddick";
 
   return new ImageResponse(
     (

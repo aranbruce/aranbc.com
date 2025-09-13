@@ -6,18 +6,16 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
-  let headers = data.headers.map((header: string, index: number) => (
+  const headers = data.headers.map((header, index) => (
     <th key={index}>{header}</th>
   ));
-  let rows = data.rows.map(
-    (row: string[], index: React.Key | null | undefined) => (
-      <tr key={index}>
-        {row.map((cell, cellIndex) => (
-          <td key={cellIndex}>{cell}</td>
-        ))}
-      </tr>
-    ),
-  );
+  const rows = data.rows.map((row, index) => (
+    <tr key={index}>
+      {row.map((cell, cellIndex) => (
+        <td key={cellIndex}>{cell}</td>
+      ))}
+    </tr>
+  ));
 
   return (
     <table>
@@ -69,9 +67,9 @@ function Code({
   ...props
 }: {
   children: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }) {
-  let codeHTML = highlight(children);
+  const codeHTML = highlight(children);
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
 
@@ -88,7 +86,7 @@ function slugify(str: string) {
 
 function createHeading(level: number) {
   const Heading = ({ children }: { children: string }) => {
-    let slug = slugify(children);
+    const slug = slugify(children);
     return React.createElement(
       `h${level}`,
       { id: slug, className: "font-semibold" },
@@ -108,7 +106,7 @@ function createHeading(level: number) {
   return Heading;
 }
 
-let components = {
+const components = {
   h1: createHeading(1),
   h2: createHeading(2),
   h3: createHeading(3),
@@ -121,7 +119,7 @@ let components = {
   Table,
 };
 
-export function CustomMDX(props: any) {
+export function CustomMDX(props: { source: string; [key: string]: unknown }) {
   return (
     <MDXRemote
       {...props}

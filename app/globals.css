@@ -47,11 +47,7 @@
   :root {
     --radius: 0.65rem;
     --background: oklch(1 0 0);
-    --page-background: linear-gradient(
-      to bottom,
-      oklch(1 0 0),
-      oklch(0.99 0 0)
-    );
+    --page-background: #feffff;
     --foreground: oklch(0.145 0 0);
     --primary: oklch(0.205 0 0);
     --primary-foreground: oklch(0.985 0 0);
@@ -64,11 +60,12 @@
     --ring: oklch(0.708 0 0);
     --card: oklch(1 0 0);
     --drop-shadow-color: oklch(0.145 0 0 / 0.08);
+    --dots-color: oklch(0.4449 0.0408 284.62/ 50%);
   }
 
   .dark {
     --background: oklch(0.145 0 0);
-    --page-background: linear-gradient(to bottom, rgb(12 12 12), rgb(0 0 0));
+    --page-background: #0b0c0c;
     --foreground: oklch(0.985 0 0);
     --primary: oklch(0.922 0 0);
     --primary-foreground: oklch(0.205 0 0);
@@ -81,6 +78,7 @@
     --ring: oklch(0.556 0 0);
     --card: oklch(0.22 0 0);
     --drop-shadow-color: oklch(0.985 0 0 / 0.05);
+    --dots-color: oklch(0.3748 0.1762 311 / 80%);
   }
 
   * {
@@ -230,4 +228,58 @@ table {
       var(--color-border) 8px
     )
     1;
+}
+
+/* Background dots pattern */
+.dots-pattern {
+  background-image: radial-gradient(
+    circle at center,
+    var(--dots-color) var(--dots-size, 0.5px),
+    transparent var(--dots-size, 0.5px)
+  );
+  background-size: 2.5px 2.5px;
+  background-repeat: repeat;
+  background-position: 0 0;
+}
+
+.mask-pattern {
+  mask: radial-gradient(
+    circle at var(--mask-position-x, 50%) var(--mask-position-y, 0%),
+    black 0%,
+    black 15%,
+    rgba(0, 0, 0, 0.8) 25%,
+    rgba(0, 0, 0, 0.4) 40%,
+    transparent 60%
+  );
+  -webkit-mask: radial-gradient(
+    circle at var(--mask-position-x, 50%) var(--mask-position-y, 0%),
+    black 0%,
+    black 15%,
+    rgba(0, 0, 0, 0.8) 25%,
+    rgba(0, 0, 0, 0.4) 40%,
+    transparent 60%
+  );
+}
+
+/* Fade mask effect */
+.fade-mask {
+  -webkit-backdrop-filter: blur(0.5rem);
+  backdrop-filter: blur(0.5rem);
+  background: linear-gradient(
+    var(--gradient-direction, 180deg),
+    var(--base-color, var(--page-background)),
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    var(--gradient-direction, 180deg),
+    black 20%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    var(--gradient-direction, 180deg),
+    black 20%,
+    transparent 100%
+  );
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }

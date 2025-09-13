@@ -12,7 +12,7 @@ export function Header() {
         // Base layout
         "fixed z-10 flex w-full flex-col items-center px-6 py-2 md:px-12 lg:px-16",
         // Visual effects
-        "backdrop-blur-[1px]",
+        // "backdrop-blur-[1px]",
       )}
     >
       <div className="flex w-full max-w-5xl flex-row items-center justify-between">
