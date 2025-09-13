@@ -1,7 +1,7 @@
 import { baseUrl } from "@/app/sitemap";
 import { getBlogPosts } from "@/app/blog/utils";
 
-export async function GET() {
+export function GET() {
   const allBlogs = getBlogPosts();
 
   const itemsXml = allBlogs

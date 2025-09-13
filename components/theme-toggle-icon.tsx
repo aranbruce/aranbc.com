@@ -5,15 +5,6 @@ import { useTheme } from "next-themes";
 
 export function ThemeToggleIcon() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <button
