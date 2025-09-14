@@ -72,17 +72,16 @@ export default function RootLayout({
           <div className="page-background relative flex h-screen min-h-screen flex-col">
             {/* Background dots pattern */}
             <div
-              className="mask-pattern absolute top-0 left-0 flex min-h-2/3 w-screen min-w-0 overflow-hidden"
+              className="mask-pattern dots-pattern pointer-events-none absolute top-0 left-0 flex min-h-2/3 w-screen min-w-0 overflow-hidden"
               style={
                 {
                   "--mask-position-x": "50%",
                   "--mask-position-y": "30%",
                   "--mask-radius": "100vh",
+                  backgroundColor: "var(--dots-background, transparent)",
                 } as React.CSSProperties
               }
-            >
-              <div className="dots-pattern pointer-events-none absolute top-0 left-0 flex h-full min-h-0 w-full min-w-0" />
-            </div>
+            />
             <main className="flex-1 pb-24">{children}</main>
             <Footer />
           </div>

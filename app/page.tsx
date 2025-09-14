@@ -11,21 +11,22 @@ export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col pb-24">
       <Section>
-        <div className="flex flex-row flex-wrap items-center gap-x-12 gap-y-8 md:flex-nowrap">
+        <div className="flex flex-row flex-wrap items-center gap-x-12 gap-y-6 md:flex-nowrap">
           <Image
             src="/aran.png"
             alt="Aran Bruce-Caddick"
-            width={160}
-            height={160}
+            width={280}
+            height={332}
             priority
-            className="-mt-10 w-auto"
+            sizes="(max-width: 640px) 160px, (max-width: 768px) 192px, (max-width: 1024px) 224px, (max-width: 1280px) 224px, 224px"
+            className="h-auto w-40 shrink-0 sm:w-40 md:w-48 lg:w-56 xl:w-56"
           />
           <div className="flex flex-col items-start gap-y-6">
             <div className="flex flex-col gap-y-3">
-              <h1 className="text-foreground text-4xl font-semibold">
-                Hi I&apos;m Aran
+              <h1 className="text-foreground text-3xl font-semibold md:text-4xl">
+                Hi, I&apos;m Aran
               </h1>
-              <p className="text-secondary-foreground text-lg">
+              <p className="text-secondary-foreground md:text-lg">
                 I&apos;m a product builder 🛠️, code enthusiast 🧑‍💻 and data nerd
                 🤓 who&apos;s deeply AI-curious. I currently work at{" "}
                 <span>
@@ -34,7 +35,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                      "border-border bg-muted hover:bg-background rounded-md border px-1 pb-0.5 transition",
+                      "border-border bg-muted hover:bg-background rounded-md border px-1 pb-0.5 whitespace-nowrap transition",
                     )}
                   >
                     <CrezcoIcon />
@@ -69,6 +70,7 @@ export default function Home() {
               <Image
                 src="/prdraftAi.svg"
                 alt="PRDraft AI website in browser"
+                priority
                 width={480}
                 height={276}
                 className="transition group-hover:scale-102"
