@@ -55,9 +55,9 @@ export function ThemeToggle() {
   ];
 
   return (
-    <fieldset className="bg-background flex items-center rounded-lg">
+    <fieldset className="bg-card border-border flex items-center gap-1 rounded-lg border p-1">
       <legend className="sr-only">Select a display theme:</legend>
-      {themes.map(({ value, label, icon: Icon }) => (
+      {themes.map(({ value, label, icon: Icon }, index) => (
         <div key={value} className="relative">
           <input
             type="radio"
@@ -71,10 +71,10 @@ export function ThemeToggle() {
           <label
             htmlFor={`theme-${value}`}
             className={cn(
-              "flex h-8 w-8 cursor-pointer items-center justify-center rounded-md transition-colors",
+              "flex h-8 w-8 cursor-pointer items-center justify-center rounded-md transition-all duration-200 ease-in-out",
               theme === value
-                ? "bg-primary/90 text-primary-foreground"
-                : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                ? "text-primary-foreground bg-[linear-gradient(to_bottom,var(--primary-400)_0%,var(--primary-500)_24%)] shadow-[inset_0_1px_0_var(--highlight-primary)]"
+                : "text-secondary-foreground bg-[linear-gradient(to_bottom,var(--secondary-400)_0%,var(--secondary-500)_24%)] shadow-[inset_0_2px_1px_0_var(--highlight-secondary)] hover:bg-[linear-gradient(to_bottom,var(--secondary-500)_0%,var(--secondary-600)_24%)]",
             )}
           >
             <span className="sr-only">{label}</span>

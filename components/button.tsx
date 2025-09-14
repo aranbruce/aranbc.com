@@ -20,12 +20,12 @@ const Button = ({
 }: ButtonProps) => {
   const className = cn(
     // Base classes
-    "items-center flex flex-row gap-x-1 no-wrap rounded-full font-semibold transition duration-150",
+    "items-center flex flex-row gap-x-1 no-wrap rounded-full font-semibold transition-all duration-200 ease-in-out",
     // Variant classes
     {
-      "bg-primary text-primary-foreground hover:bg-primary/80 border border-ring/20":
+      "bg-[linear-gradient(to_bottom,var(--primary-400)_0%,var(--primary-500)_24%)] hover:bg-[linear-gradient(to_bottom,var(--primary-300)_0%,var(--primary-400)_24%)] text-primary-foreground shadow-[inset_0_1px_0_var(--highlight-primary)]":
         variant === "primary",
-      "bg-card text-foreground border border-border hover:bg-muted":
+      "bg-[linear-gradient(to_bottom,var(--secondary-400)_0%,var(--secondary-500)_24%)] hover:bg-[linear-gradient(to_bottom,var(--secondary-500)_0%,var(--secondary-600)_24%)] text-secondary-foreground border border-border  shadow-[inset_0_2px_1px_0_var(--highlight-secondary)]":
         variant === "secondary",
     },
     // Size classes
