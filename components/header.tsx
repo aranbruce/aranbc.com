@@ -9,10 +9,7 @@ export function Header() {
   return (
     <nav
       className={cn(
-        // Base layout
-        "fixed z-10 flex w-full flex-col items-center px-6 py-2 md:px-12 lg:px-16",
-        // Visual effects
-        // "backdrop-blur-[1px]",
+        "fixed z-20 flex w-full flex-col items-center px-6 py-2 md:px-12 lg:px-16",
       )}
     >
       <div className="flex w-full max-w-5xl flex-row items-center justify-between">
@@ -23,7 +20,7 @@ export function Header() {
         >
           <Logo />
         </Link>
-        <div className="flex flex-row items-center gap-x-3">
+        <div className="flex flex-row items-center gap-x-2">
           <Button
             variant="secondary"
             size="small"

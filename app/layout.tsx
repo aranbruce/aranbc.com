@@ -82,7 +82,7 @@ export default function RootLayout({
                 } as React.CSSProperties
               }
             />
-            <main className="flex-1 pb-24">{children}</main>
+            <main className="z-1 flex-1 pb-24">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>

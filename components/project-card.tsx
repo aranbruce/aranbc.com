@@ -43,7 +43,7 @@ export function ProjectCard({
           isHorizontal ? "col-span-2" : "",
         )}
       >
-        <h3 className="text-foreground text-2xl font-semibold">{title}</h3>
+        <h3 className="text-foreground font-semibold">{title}</h3>
         <p className="text-secondary-foreground">{description}</p>
       </div>
       <div

@@ -16,7 +16,7 @@ export default function Section({
     <section className={cn("flex flex-col items-center", className)}>
       <div
         className={cn(
-          "flex w-full max-w-5xl flex-col items-start gap-y-6 px-6 pb-4 pt-48 md:px-12 lg:px-24",
+          "flex w-full max-w-5xl flex-col items-start gap-y-6 px-6 pt-28 pb-4 md:px-12 md:pt-48 lg:px-24",
           contentClassName,
         )}
       >

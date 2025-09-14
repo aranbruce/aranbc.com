@@ -23,7 +23,7 @@ export default function Home() {
           />
           <div className="flex flex-col items-start gap-y-6">
             <div className="flex flex-col gap-y-3">
-              <h1 className="text-foreground text-3xl font-semibold md:text-4xl">
+              <h1 className="text-foreground font-semibold">
                 Hi, I&apos;m Aran
               </h1>
               <p className="text-secondary-foreground md:text-lg">
@@ -57,9 +57,7 @@ export default function Home() {
         </div>
       </Section>
       <Section>
-        <h2 className="text-foreground text-4xl font-semibold">
-          Side projects
-        </h2>
+        <h2 className="text-foreground font-semibold">Side projects</h2>
         <div className="flex w-full flex-col gap-y-10 pb-20">
           <ProjectCard
             href="https://prdraft.ai/"
@@ -131,7 +129,7 @@ export default function Home() {
         </div>
       </Section>
       <Section>
-        <h2 className="text-foreground text-4xl font-semibold">Read my blog</h2>
+        <h2 className="text-foreground font-semibold">Read my blog</h2>
         <BlogPosts />
       </Section>
     </main>
