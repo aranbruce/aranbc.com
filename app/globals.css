@@ -61,7 +61,7 @@
     --card: oklch(1 0 0);
     --drop-shadow-color: oklch(0.145 0 0 / 0.08);
     --dots-color: var(--color-muted);
-    --dots-background: oklch(0.3748 0.1762 311 / 30%);
+    --dots-background: oklch(0.3748 0.1762 311 / 20%);
   }
 
   .dark {
