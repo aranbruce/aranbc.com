@@ -312,3 +312,32 @@ table {
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
+
+/* Custom utility classes */
+@layer utilities {
+  .fade-mask-header {
+    --base-color: var(--page-background);
+    --gradient-direction: 180deg;
+  }
+
+  .dots-center {
+    --mask-position-x: 50%;
+    --mask-position-y: 30%;
+    --mask-radius: 100vh;
+    background-color: var(--dots-background, transparent);
+  }
+
+  .dots-top-left {
+    --mask-position-x: 0%;
+    --mask-position-y: 0%;
+    --mask-radius: 100vh;
+    background-color: var(--dots-background, transparent);
+  }
+
+  .dots-top-right {
+    --mask-position-x: 100%;
+    --mask-position-y: 0%;
+    --mask-radius: 100vh;
+    background-color: var(--dots-background, transparent);
+  }
+}
