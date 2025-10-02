@@ -128,10 +128,10 @@ export default function Home() {
           />
         </div>
       </Section>
-      <Section>
+      {/* <Section>
         <h2 className="text-foreground font-semibold">Read my blog</h2>
         <BlogPosts />
-      </Section>
+      </Section> */}
     </main>
   );
 }
