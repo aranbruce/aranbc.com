@@ -3,7 +3,7 @@ import Section from "@/components/section";
 import Image from "next/image";
 import Link from "next/link";
 import CrezcoIcon from "./images/crezco";
-import { BlogPosts } from "@/components/blog-posts";
+// import { BlogPosts } from "@/components/blog-posts";
 import { ProjectCard } from "@/components/project-card";
 import { cn } from "@/lib/utils";
 import LightRays from "@/components/light-rays";

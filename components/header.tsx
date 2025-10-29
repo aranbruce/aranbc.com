@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Button from "./button";
-import Logo from "@/app/images/logo";
+// import Logo from "@/app/images/logo";
 import LinkedInIcon from "@/app/images/linkedin";
 import GithubIcon from "@/app/images/github";
 import { cn } from "@/lib/utils";
