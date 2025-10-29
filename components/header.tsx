@@ -9,7 +9,7 @@ export function Header() {
   return (
     <nav
       className={cn(
-        "fixed z-20 flex w-full flex-col items-center px-6 py-2 md:px-12 lg:px-16",
+        "fixed z-20 mt-4 flex w-full flex-col items-center px-6 py-2 md:px-12 lg:px-16",
       )}
     >
       <div className="flex w-full max-w-5xl flex-row items-center justify-between">
@@ -18,7 +18,10 @@ export function Header() {
           aria-label="Aran Bruce-Caddick logo"
           className="text-foreground"
         >
-          <Logo />
+          {/* <Logo /> */}
+          <h4 className="text-foreground text-md font-semibold">
+            Aran Bruce-Caddick
+          </h4>
         </Link>
         <div className="flex flex-row items-center gap-x-2">
           <Button

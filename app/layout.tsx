@@ -59,11 +59,7 @@ export default function RootLayout({
       <body className={`${urbanist.className} bg-background`}>
         <ThemeProvider>
           <Header />
-          {/* Fade mask overlay */}
-          <div className="fade-mask fade-mask-header pointer-events-none fixed top-0 left-0 z-5 h-14 w-full" />
-          <div className="page-background relative flex h-screen min-h-screen flex-col">
-            {/* Background dots pattern */}
-            <div className="mask-pattern dots-pattern dots-center pointer-events-none absolute top-0 left-0 flex min-h-2/3 w-screen min-w-0 overflow-hidden" />
+          <div className="relative flex h-screen min-h-screen flex-col">
             <main className="z-1 flex-1 pb-24">{children}</main>
             <Footer />
           </div>
