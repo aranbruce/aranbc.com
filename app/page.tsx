@@ -42,7 +42,7 @@ export default function Home() {
               priority
               className="border-border/40 bg-secondary-foreground/20 relative z-10 h-10 w-10 shrink-0 rounded-full border object-cover"
             />
-            <h4 className="text-foreground relative z-10 pr-3 text-base font-normal">
+            <h4 className="text-foreground relative z-10 pr-3 text-base font-medium">
               Aran Bruce-Caddick
             </h4>
           </div>

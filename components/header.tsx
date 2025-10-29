@@ -1,27 +1,21 @@
 import Link from "next/link";
 import Button from "./button";
-// import Logo from "@/app/images/logo";
+import Logo from "@/app/images/logo";
 import LinkedInIcon from "@/app/images/linkedin";
 import GithubIcon from "@/app/images/github";
 import { cn } from "@/lib/utils";
 
 export function Header() {
   return (
-    <nav
-      className={cn(
-        "fixed z-20 mt-4 flex w-full flex-col items-center px-6 py-2 md:px-12 lg:px-16",
-      )}
-    >
-      <div className="flex w-full max-w-5xl flex-row items-center justify-between">
+    <nav className="fixed left-1/2 z-20 mt-2 flex w-full max-w-5xl -translate-x-1/2 flex-col items-center px-6 py-2 md:px-12 lg:px-24">
+      <div className="border-border bg-card/40 flex w-full flex-row items-center justify-between rounded-2xl border px-2 py-2 backdrop-blur-sm md:px-4">
         <Link
           href="/"
           aria-label="Aran Bruce-Caddick logo"
           className="text-foreground"
         >
-          {/* <Logo /> */}
-          <h4 className="text-foreground text-md font-semibold">
-            Aran Bruce-Caddick
-          </h4>
+          <Logo />
+          {/* <h4 className="text-foreground text-xl font-medium">AranB-C</h4> */}
         </Link>
         <div className="flex flex-row items-center gap-x-2">
           <Button
