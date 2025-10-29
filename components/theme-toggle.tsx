@@ -57,7 +57,7 @@ export function ThemeToggle() {
   return (
     <fieldset className="bg-card border-border flex items-center gap-1 rounded-lg border p-1">
       <legend className="sr-only">Select a display theme:</legend>
-      {themes.map(({ value, label, icon: Icon }, index) => (
+      {themes.map(({ value, label, icon: Icon }) => (
         <div key={value} className="relative">
           <input
             type="radio"

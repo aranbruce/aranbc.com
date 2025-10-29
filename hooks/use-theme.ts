@@ -7,7 +7,10 @@ export function useTheme() {
   const { theme, setTheme, resolvedTheme } = useNextTheme();
   const [mounted, setMounted] = useState(false);
 
+  // This effect is necessary to prevent hydration mismatches.
+  // The mounted state ensures server and client render the same initial HTML.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- Required for hydration safety
     setMounted(true);
   }, []);
 
