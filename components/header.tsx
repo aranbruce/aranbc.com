@@ -15,14 +15,14 @@ export function Header() {
           className="text-foreground"
         >
           <Logo />
-          {/* <h4 className="text-foreground text-xl font-medium">AranB-C</h4> */}
         </Link>
-        <div className="flex flex-row items-center gap-x-2">
+        <div className="flex flex-row items-stretch gap-x-2">
           <Button
             variant="secondary"
             size="small"
             href="https://www.linkedin.com/in/aranbc/"
             openInNewTab
+            className="flex items-center justify-center"
           >
             <LinkedInIcon />
             <div className="hidden sm:block">LinkedIn</div>
@@ -32,9 +32,10 @@ export function Header() {
             size="small"
             href="https://github.com/aranbruce"
             openInNewTab
+            className="flex items-center justify-center"
           >
             <GithubIcon />
-            Github
+            <span>GitHub</span>
           </Button>
         </div>
       </div>
