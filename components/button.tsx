@@ -1,51 +1,66 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "react";
 
-type ButtonProps = {
+type ButtonBaseProps = {
   variant?: "primary" | "secondary";
   size?: "small" | "medium";
-  href?: string;
+  children: ReactNode;
   openInNewTab?: boolean;
-  onClick?: () => void;
-  children: React.ReactNode;
+  className?: string;
 };
+
+type ButtonProps =
+  | (ButtonBaseProps &
+      Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className"> & {
+        href?: undefined;
+      })
+  | (ButtonBaseProps &
+      Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "className"> & {
+        href: string;
+      });
 
 const Button = ({
   variant = "primary",
   size = "medium",
   href,
-  openInNewTab = false,
-  onClick,
+  openInNewTab,
   children,
+  className,
+  ...rest
 }: ButtonProps) => {
-  const className = cn(
-    // Base classes
-    "items-center flex flex-row gap-x-1 no-wrap rounded-full font-semibold transition-all duration-200 ease-in-out",
-    // Variant classes
+  const baseClasses = cn(
+    "flex flex-row items-center gap-x-1 rounded-full font-semibold transition-all duration-200 ease-in-out",
     {
+      // Variants
       "bg-[linear-gradient(to_bottom,var(--primary-400)_0%,var(--primary-500)_24%)] hover:bg-[linear-gradient(to_bottom,var(--primary-300)_0%,var(--primary-400)_24%)] text-primary-foreground shadow-[inset_0_1px_0_var(--highlight-primary)]":
         variant === "primary",
-      "bg-[linear-gradient(to_bottom,var(--secondary-400)_0%,var(--secondary-500)_24%)] hover:bg-[linear-gradient(to_bottom,var(--secondary-500)_0%,var(--secondary-600)_24%)] text-primary-600 border border-border  shadow-[inset_0_2px_1px_0_var(--highlight-secondary)]":
+      "bg-[linear-gradient(to_bottom,var(--secondary-400)_0%,var(--secondary-500)_24%)] hover:bg-[linear-gradient(to_bottom,var(--secondary-500)_0%,var(--secondary-600)_24%)] text-primary-600 border border-border shadow-[inset_0_2px_1px_0_var(--highlight-secondary)]":
         variant === "secondary",
     },
-    // Size classes
     {
       "text-sm px-4 py-2.5": size === "small",
       "text-base px-6 py-2.5": size === "medium",
     },
+    className
   );
 
-  return href ? (
-    <Link
-      href={href}
-      target={openInNewTab ? "_blank" : "_self"}
-      rel={openInNewTab ? "noopener noreferrer" : undefined}
-      className={className}
-    >
-      {children}
-    </Link>
-  ) : (
-    <button className={className} onClick={onClick}>
+  if (href) {
+    return (
+      <Link
+        href={href}
+        target={openInNewTab ? "_blank" : "_self"}
+        rel={openInNewTab ? "noopener noreferrer" : undefined}
+        className={baseClasses}
+        {...rest}
+      >
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <button className={baseClasses} {...rest}>
       {children}
     </button>
   );
