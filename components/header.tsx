@@ -22,7 +22,7 @@ export function Header() {
             size="small"
             href="https://www.linkedin.com/in/aranbc/"
             openInNewTab
-            aria-lbel="LinkedIn"
+            aria-label="LinkedIn"
           >
             <LinkedInIcon />
             <span className="hidden sm:inline">LinkedIn</span>
