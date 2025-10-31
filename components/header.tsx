@@ -3,7 +3,6 @@ import Button from "./button";
 import Logo from "@/app/images/logo";
 import LinkedInIcon from "@/app/images/linkedin";
 import GithubIcon from "@/app/images/github";
-import { cn } from "@/lib/utils";
 
 export function Header() {
   return (
@@ -16,23 +15,24 @@ export function Header() {
         >
           <Logo />
         </Link>
+
+        {/* Make children the same height */}
         <div className="flex flex-row items-stretch gap-x-2">
           <Button
             variant="secondary"
             size="small"
             href="https://www.linkedin.com/in/aranbc/"
             openInNewTab
-            className="flex items-center justify-center"
           >
             <LinkedInIcon />
-            <div className="hidden sm:block">LinkedIn</div>
+            <span className="hidden sm:inline">LinkedIn</span>
           </Button>
+
           <Button
             variant="primary"
             size="small"
             href="https://github.com/aranbruce"
             openInNewTab
-            className="flex items-center justify-center"
           >
             <GithubIcon />
             <span>GitHub</span>
