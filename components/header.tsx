@@ -3,21 +3,20 @@ import Button from "./button";
 import Logo from "@/app/images/logo";
 import LinkedInIcon from "@/app/images/linkedin";
 import GithubIcon from "@/app/images/github";
-import { cn } from "@/lib/utils";
 
 export function Header() {
   return (
     <nav className="fixed left-1/2 z-20 mt-2 flex w-full max-w-5xl -translate-x-1/2 flex-col items-center px-6 py-2 md:px-12 lg:px-24">
-      <div className="border-border bg-card/40 flex w-full flex-row items-center justify-between rounded-2xl border px-2 py-2 backdrop-blur-sm md:px-4">
+      <div className="bg-card/40 border-border flex w-full flex-row items-center justify-between rounded-2xl border px-2 py-2 backdrop-blur-sm md:px-4">
         <Link
           href="/"
           aria-label="Aran Bruce-Caddick logo"
           className="text-foreground"
         >
           <Logo />
-          {/* <h4 className="text-foreground text-xl font-medium">AranB-C</h4> */}
         </Link>
-        <div className="flex flex-row items-center gap-x-2">
+
+        <div className="flex flex-row items-stretch gap-x-2">
           <Button
             variant="secondary"
             size="small"
@@ -25,8 +24,9 @@ export function Header() {
             openInNewTab
           >
             <LinkedInIcon />
-            <div className="hidden sm:block">LinkedIn</div>
+            <span className="hidden sm:inline">LinkedIn</span>
           </Button>
+
           <Button
             variant="primary"
             size="small"
@@ -34,7 +34,7 @@ export function Header() {
             openInNewTab
           >
             <GithubIcon />
-            Github
+            <span>GitHub</span>
           </Button>
         </div>
       </div>
