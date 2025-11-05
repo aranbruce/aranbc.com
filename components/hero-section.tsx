@@ -25,7 +25,7 @@ export function HeroSection() {
           />
         </div>
         {/* Opacity gradient overlay - fade from full opacity to transparent */}
-        <div className="to-background pointer-events-none absolute inset-0 -z-10 bg-linear-to-b from-transparent via-transparent" />
+        <div className="to-background from-background/30 via-background-40 pointer-events-none absolute inset-0 -z-10 bg-linear-to-b" />
       </div>
 
       <div className="z-10 flex flex-col flex-wrap items-center gap-x-12 gap-y-6 md:flex-nowrap">

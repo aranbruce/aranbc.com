@@ -8,7 +8,7 @@ interface ProfileBadgeProps {
 
 export function ProfileBadge({ src, alt, name }: ProfileBadgeProps) {
   return (
-    <div className="bg-card/50 border-border/50 shadow-card relative flex flex-row items-center gap-x-3 rounded-full border p-1">
+    <div className="bg-card/30 border-border/50 shadow-card relative flex flex-row items-center gap-x-3 rounded-full border p-1 backdrop-blur-sm">
       <Image
         src={src}
         alt={alt}
