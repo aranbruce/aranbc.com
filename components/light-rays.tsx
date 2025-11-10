@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import { Renderer, Program, Triangle, Mesh } from "ogl";
+import { useTheme } from "@/hooks/use-theme";
 
 export type RaysOrigin =
   | "top-center"
@@ -15,7 +16,9 @@ export type RaysOrigin =
 
 interface LightRaysProps {
   raysOrigin?: RaysOrigin;
-  raysColor?: string;
+  raysColor?: string; // Fallback for backward compatibility
+  darkRaysColor?: string;
+  lightRaysColor?: string;
   raysSpeed?: number;
   lightSpread?: number;
   rayLength?: number;
@@ -70,7 +73,9 @@ const getAnchorAndDir = (
 
 const LightRays: React.FC<LightRaysProps> = ({
   raysOrigin = "top-center",
-  raysColor = DEFAULT_COLOR,
+  raysColor,
+  darkRaysColor,
+  lightRaysColor,
   raysSpeed = 1,
   lightSpread = 1,
   rayLength = 2,
@@ -83,7 +88,22 @@ const LightRays: React.FC<LightRaysProps> = ({
   distortion = 0.0,
   className = "",
 }) => {
+  const { resolvedTheme, mounted } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Determine the active color based on theme
+  const activeColor = useMemo(() => {
+    // If theme-specific colors are provided, use them
+    if (darkRaysColor && lightRaysColor) {
+      if (!mounted) {
+        // Before mount, default to light theme color
+        return lightRaysColor;
+      }
+      return resolvedTheme === "dark" ? darkRaysColor : lightRaysColor;
+    }
+    // Fallback to raysColor if provided, otherwise use default
+    return raysColor || DEFAULT_COLOR;
+  }, [darkRaysColor, lightRaysColor, raysColor, resolvedTheme, mounted]);
   const uniformsRef = useRef<{
     iTime: { value: number };
     iResolution: { value: [number, number] };
@@ -272,7 +292,7 @@ void main() {
         rayPos: { value: [0, 0] as [number, number] },
         rayDir: { value: [0, 1] as [number, number] },
 
-        raysColor: { value: hexToRgb(raysColor) },
+        raysColor: { value: hexToRgb(activeColor) },
         raysSpeed: { value: raysSpeed },
         lightSpread: { value: lightSpread },
         rayLength: { value: rayLength },
@@ -392,7 +412,7 @@ void main() {
   }, [
     isVisible,
     raysOrigin,
-    raysColor,
+    activeColor,
     raysSpeed,
     lightSpread,
     rayLength,
@@ -412,7 +432,7 @@ void main() {
     const u = uniformsRef.current;
     const renderer = rendererRef.current;
 
-    u.raysColor.value = hexToRgb(raysColor);
+    u.raysColor.value = hexToRgb(activeColor);
     u.raysSpeed.value = raysSpeed;
     u.lightSpread.value = lightSpread;
     u.rayLength.value = rayLength;
@@ -429,7 +449,7 @@ void main() {
     u.rayPos.value = anchor;
     u.rayDir.value = dir;
   }, [
-    raysColor,
+    activeColor,
     raysSpeed,
     lightSpread,
     raysOrigin,

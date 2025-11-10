@@ -12,7 +12,8 @@ export function HeroSection() {
         <div className="relative -z-10 h-full w-full">
           <LightRays
             raysOrigin="top-center"
-            raysColor="#fff"
+            darkRaysColor="#aeabd9"
+            lightRaysColor="#36344b"
             raysSpeed={2}
             lightSpread={1}
             rayLength={3}
@@ -21,7 +22,6 @@ export function HeroSection() {
             noiseAmount={0}
             distortion={0.05}
             saturation={2}
-            className="custom-rays"
           />
         </div>
         {/* Opacity gradient overlay - fade from full opacity to transparent */}
