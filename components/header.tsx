@@ -11,7 +11,7 @@ export function Header() {
         <Link
           href="/"
           aria-label="Aran Bruce-Caddick logo"
-          className="text-foreground"
+          className="text-foreground rounded-sm"
         >
           <Logo />
         </Link>

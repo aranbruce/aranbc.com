@@ -55,17 +55,20 @@ export function ThemeToggle() {
   ];
 
   return (
-    <fieldset className="bg-card border-border flex items-center gap-1 rounded-lg border p-1">
+    <fieldset className="bg-card border-border shadow-card flex items-center gap-1 rounded-lg border p-1">
       <legend className="sr-only">Select a display theme:</legend>
       {themes.map(({ value, label, icon: Icon }) => (
-        <div key={value} className="relative">
+        <div
+          key={value}
+          className="has-focus-visible:outline-ring/40 relative rounded-md has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-solid"
+        >
           <input
             type="radio"
             value={value}
             checked={theme === value}
             onChange={() => setTheme(value)}
             id={`theme-${value}`}
-            className="sr-only"
+            className="sr-only focus-visible:outline-none"
             aria-label={label}
           />
           <label
@@ -73,8 +76,8 @@ export function ThemeToggle() {
             className={cn(
               "flex h-8 w-8 cursor-pointer items-center justify-center rounded-md transition-all duration-200 ease-in-out",
               theme === value
-                ? "text-primary-foreground bg-[linear-gradient(to_bottom,var(--primary-400)_0%,var(--primary-500)_24%)] shadow-[inset_0_1px_0_var(--highlight-primary)]"
-                : "text-secondary-foreground bg-[linear-gradient(to_bottom,var(--secondary-400)_0%,var(--secondary-500)_24%)] shadow-[inset_0_2px_1px_0_var(--highlight-secondary)] hover:bg-[linear-gradient(to_bottom,var(--secondary-500)_0%,var(--secondary-600)_24%)]",
+                ? "bg-button-primary/60 text-button-primary-foreground hover:bg-button-primary-hover/60"
+                : "bg-button-secondary/80 text-secondary-foreground/80 hover:bg-button-secondary-hover",
             )}
           >
             <span className="sr-only">{label}</span>

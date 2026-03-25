@@ -28,7 +28,7 @@ export function ProjectCard({
       rel="noopener noreferrer"
       className={cn(
         // Base styles
-        "group w-full transform overflow-hidden rounded-xl transition-all duration-200 ease-in-out hover:scale-102",
+        "group w-full overflow-hidden rounded-xl",
         // Layout & visual
         "border-border bg-card drop-shadow-card border backdrop-blur-xs",
         // Layout-specific styles
@@ -48,7 +48,7 @@ export function ProjectCard({
       </div>
       <div
         className={cn(
-          "drop-shadow-card col-span-3 mt-auto flex flex-col items-end pt-4 pl-4 transition-all duration-200 ease-in-out group-hover:scale-104",
+          "drop-shadow-card col-span-3 mt-auto flex flex-col items-end overflow-hidden pt-4 pl-4 transition-transform duration-200 ease-in-out group-hover:scale-104 group-focus-visible:scale-104",
         )}
       >
         {image}
