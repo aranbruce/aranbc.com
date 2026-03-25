@@ -53,7 +53,7 @@
 
     /* Light */
     --background: var(--brand-50);
-    --foreground: var(--brand-850);
+    --foreground: var(--brand-800);
     --primary: var(--brand-800);
     --primary-foreground: var(--brand-50);
     --secondary: var(--brand-200);
