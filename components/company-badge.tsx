@@ -19,7 +19,7 @@ export function CompanyBadge({ href, icon, name }: CompanyBadgeProps) {
       )}
     >
       {icon}
-      <span className="text-sm font-semibold">{name}</span>
+      <span className="text-sm font-medium">{name}</span>
     </Link>
   );
 }

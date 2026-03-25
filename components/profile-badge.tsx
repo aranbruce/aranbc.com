@@ -17,7 +17,7 @@ export function ProfileBadge({ src, alt, name }: ProfileBadgeProps) {
         priority
         className="border-border/40 bg-secondary-foreground/20 relative z-10 h-10 w-10 shrink-0 rounded-full border object-cover"
       />
-      <h4 className="text-foreground relative z-10 pr-3 text-base font-medium">
+      <h4 className="text-secondary-foreground relative z-10 pr-3 text-base font-medium">
         {name}
       </h4>
     </div>

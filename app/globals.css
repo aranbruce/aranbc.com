@@ -10,16 +10,9 @@
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-primary-300: var(--primary-300);
-  --color-primary-400: var(--primary-400);
-  --color-primary-500: var(--primary-500);
-  --color-primary-600: var(--primary-600);
 
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary-400: var(--secondary-400);
-  --color-secondary-500: var(--secondary-500);
-  --color-secondary-600: var(--secondary-600);
 
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
@@ -28,117 +21,74 @@
   --color-ring: var(--ring);
   --color-card: var(--card);
 
-  --color-highlight-primary: var(--highlight-primary);
-  --color-highlight-secondary: var(--highlight-secondary);
-
-  --color-button-primary-default: var(--button-primary-default);
+  --color-button-primary: var(--button-primary);
   --color-button-primary-hover: var(--button-primary-hover);
-  --color-button-secondary-default: var(--button-secondary-default);
+  --color-button-primary-foreground: var(--primary-foreground);
+  --color-button-secondary-foreground: var(--button-secondary-foreground);
+  --color-button-secondary: var(--button-secondary);
   --color-button-secondary-hover: var(--button-secondary-hover);
 
   --radius: var(--radius);
+  --shadow-card: 0 0 24px var(--drop-shadow-color);
   --drop-shadow-card: 0 0px 24px var(--drop-shadow-color);
 }
 
 @layer base {
-  /* CSS Variables - Light Mode */
+  /*
+   * Brand scale — declared once. Semantic tokens (`primary`, `secondary`, surfaces, buttons)
+   * map to brand rungs per theme (light vs `.dark`).
+   */
   :root {
-    --background: oklch(1 0 290);
-    --foreground: oklch(0.145 0 290);
-    --primary: oklch(0.205 0 290);
-    --primary-foreground: oklch(0.985 0 290);
-    --secondary: oklch(0.97 0 290);
-    --secondary-foreground: oklch(0.5 0.02 290);
-    --muted: oklch(0.97 0 290);
-    --muted-foreground: oklch(0.556 0 290);
-    --border: oklch(0.922 0 290);
-    --ring: oklch(0.708 0 290);
-    --card: oklch(1 0 290);
+    --radius: 0.5rem;
+    --brand-50: oklch(1 0.005 288);
+    --brand-100: oklch(0.98 0.005 288);
+    --brand-200: oklch(0.93 0.005 288);
+    --brand-300: oklch(0.85 0.005 288);
+    --brand-400: oklch(0.8 0.005 288);
+    --brand-500: oklch(0.7 0.005 288);
+    --brand-600: oklch(0.5 0.005 288);
+    --brand-700: oklch(0.3 0.004 288);
+    --brand-800: oklch(0.21 0.002 288);
+    --brand-900: oklch(0.15 0.001 288);
 
-    /* Extended color variables */
-    --primary-300: oklch(0.45 0 290);
-    --primary-400: oklch(0.35 0 290);
-    --primary-500: oklch(0.205 0 290);
-    --primary-600: oklch(0.155 0 290);
-    --secondary-300: oklch(1 0 290);
-    --secondary-400: oklch(0.99 0 290);
-    --secondary-500: oklch(0.97 0 290);
-    --secondary-600: oklch(0.94 0 290);
-    --highlight-primary: rgba(255, 255, 255, 0.15);
-    --highlight-secondary: rgba(255, 255, 255, 0.6);
-    --drop-shadow-color: oklch(0.145 0 290 / 0.08);
-
-    /* Button backgrounds */
-    --button-primary-default: linear-gradient(
-      to bottom,
-      var(--primary-400) 0%,
-      var(--primary-500) 24%
-    );
-    --button-primary-hover: linear-gradient(
-      to bottom,
-      var(--primary-300) 0%,
-      var(--primary-400) 24%
-    );
-    --button-secondary-default: linear-gradient(
-      to bottom,
-      var(--secondary-400) 0%,
-      var(--secondary-500) 24%
-    );
-    --button-secondary-hover: linear-gradient(
-      to bottom,
-      var(--secondary-500) 0%,
-      var(--secondary-600) 24%
-    );
+    /* Light */
+    --background: var(--brand-50);
+    --foreground: var(--brand-850);
+    --primary: var(--brand-800);
+    --primary-foreground: var(--brand-50);
+    --secondary: var(--brand-200);
+    --secondary-foreground: var(--brand-600);
+    --muted: var(--brand-200);
+    --muted-foreground: var(--brand-700);
+    --border: var(--brand-200);
+    --ring: var(--brand-900);
+    --card: var(--brand-50);
+    --drop-shadow-color: oklch(from var(--brand-900) l c h / 0.08);
+    --button-primary: var(--brand-700);
+    --button-primary-hover: var(--brand-800);
+    --button-secondary: var(--brand-50);
+    --button-secondary-hover: var(--brand-100);
+    --button-secondary-foreground: var(--brand-800);
   }
 
-  /* CSS Variables - Dark Mode */
   .dark {
-    --background: oklch(0.145 0 290);
-    --foreground: oklch(0.985 0 290);
-    --primary: oklch(0.922 0 290);
-    --primary-foreground: oklch(0.205 0 290);
-    --secondary: oklch(0.269 0 290);
-    --secondary-foreground: oklch(0.75 0 290);
-    --muted: oklch(0.269 0 290);
-    --muted-foreground: oklch(0.708 0 290);
-    --border: oklch(1 0 290 / 5%);
-    --ring: oklch(0.556 0 290);
-    --card: oklch(0.22 0 290);
-
-    /* Extended color variables */
-    --primary-300: oklch(1 0 290);
-    --primary-400: oklch(0.94 0 290);
-    --primary-500: oklch(0.88 0 290);
-    --primary-600: oklch(0.84 0 290);
-    --secondary-300: oklch(0.45 0 290);
-    --secondary-400: oklch(0.27 0 290);
-    --secondary-500: oklch(0.22 0 290);
-    --secondary-600: oklch(0.15 0 290);
-    --highlight-primary: rgba(255, 255, 255, 0.1);
-    --highlight-secondary: rgba(255, 255, 255, 0.01);
-    --drop-shadow-color: oklch(0.985 0 290 / 0.05);
-
-    /* Button backgrounds - inherit from updated color variables */
-    --button-primary-default: linear-gradient(
-      to bottom,
-      var(--primary-300) 0%,
-      var(--primary-500) 24%
-    );
-    --button-primary-hover: linear-gradient(
-      to bottom,
-      var(--primary-400) 0%,
-      var(--primary-600) 24%
-    );
-    --button-secondary-default: linear-gradient(
-      to bottom,
-      var(--secondary-400) 0%,
-      var(--secondary-500) 24%
-    );
-    --button-secondary-hover: linear-gradient(
-      to bottom,
-      var(--secondary-500) 0%,
-      var(--secondary-600) 24%
-    );
+    --background: var(--brand-900);
+    --foreground: var(--brand-50);
+    --primary: var(--brand-400);
+    --primary-foreground: var(--brand-800);
+    --secondary: var(--brand-800);
+    --secondary-foreground: var(--brand-500);
+    --muted: var(--brand-800);
+    --muted-foreground: var(--brand-500);
+    --border: oklch(from var(--brand-50) l c h / 5%);
+    --ring: var(--brand-50);
+    --card: var(--brand-800);
+    --drop-shadow-color: oklch(from var(--brand-50) l c h / 0.05);
+    --button-primary: var(--brand-100);
+    --button-primary-hover: var(--brand-200);
+    --button-secondary: var(--brand-800);
+    --button-secondary-hover: var(--brand-700);
+    --button-secondary-foreground: var(--brand-50);
   }
 
   /* Base Styles */
@@ -147,11 +97,20 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+    border-color: currentcolor;
   }
 
   * {
-    @apply border-border outline-ring/50 subpixel-antialiased;
+    @apply border-border antialiased;
+  }
+
+  /*
+   * Outline (not ring): `outline-offset` leaves a real gap — whatever is behind the control
+   * shows through, so card vs page background is never wrong. Ring uses extra box-shadows
+   * that need a painted offset and can stack oddly with `shadow-*` on the same node.
+   */
+  *:focus-visible {
+    @apply outline-ring/40 outline-2 outline-offset-2 outline-solid;
   }
 
   body {
@@ -204,7 +163,7 @@
   }
 
   .prose a {
-    @apply text-foreground font-bold transition-all;
+    @apply text-foreground font-semibold transition-all;
   }
 
   .prose a:hover {
@@ -216,7 +175,7 @@
   }
 
   .prose strong {
-    @apply leading-7 font-semibold;
+    @apply leading-7 font-medium;
   }
 
   .prose h1,
@@ -268,7 +227,7 @@
   }
 
   .prose code span {
-    @apply font-semibold;
+    @apply font-medium;
   }
 
   pre::-webkit-scrollbar {

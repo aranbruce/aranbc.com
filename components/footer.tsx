@@ -11,11 +11,11 @@ export function Footer() {
       )}
     >
       <div className="flex w-full max-w-5xl flex-row items-start justify-between gap-y-4 md:items-center">
-        <div className="flex flex-col gap-y-2">
+        <div className="flex flex-col gap-y-1">
           <p className="text-foreground text-sm font-medium">
             Aran Bruce-Caddick
           </p>
-          <p className="text-muted-foreground text-xs">
+          <p className="text-muted-foreground text-sm">
             Product builder, code enthusiast, and data nerd
           </p>
         </div>

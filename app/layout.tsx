@@ -1,11 +1,55 @@
 import type { Metadata } from "next";
-import { Urbanist } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const urbanist = Urbanist({ subsets: ["latin"] });
+const basierCircle = localFont({
+  src: [
+    {
+      path: "./fonts/basier-circle/basier-circle-regular-webfont/basier-circle-regular-webfont.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/basier-circle/basier-circle-regular-italic-webfont/basier-circle-regular-italic-webfont.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "./fonts/basier-circle/basier-circle-medium-webfont/basier-circle-medium-webfont.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/basier-circle/basier-circle-medium-italic-webfont/basier-circle-medium-italic-webfont.woff2",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "./fonts/basier-circle/basier-circle-semibold-webfont/basier-circle-semibold-webfont.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/basier-circle/basier-circle-semibold-italic-webfont/basier-circle-semibold-italic-webfont.woff2",
+      weight: "600",
+      style: "italic",
+    },
+    {
+      path: "./fonts/basier-circle/basier-circle-bold-webfont/basier-circle-bold-webfont.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/basier-circle/basier-circle-bold-italic-webfont/basier-circle-bold-italic-webfont.woff2",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Aran Bruce-Caddick | Personal Website",
@@ -56,7 +100,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${urbanist.className} bg-background`}>
+      <body className={`${basierCircle.className} bg-background`}>
         <ThemeProvider>
           <Header />
           <div className="relative flex h-screen min-h-screen flex-col">

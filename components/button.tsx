@@ -26,9 +26,9 @@ type Props = ButtonProps | LinkButtonProps;
 
 const variantStyles = {
   primary:
-    "bg-[image:var(--button-primary-default)] hover:bg-[image:var(--button-primary-hover)] text-primary-foreground shadow-[inset_0_1px_0_var(--highlight-primary)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[image:var(--button-primary-default)]",
+    "bg-button-primary hover:bg-button-primary-hover text-button-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-button-primary",
   secondary:
-    "bg-[image:var(--button-secondary-default)] hover:bg-[image:var(--button-secondary-hover)] text-primary-600 border border-border shadow-[inset_0_2px_1px_0_var(--highlight-secondary)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[image:var(--button-secondary-default)]",
+    "bg-button-secondary text-button-secondary-foreground border border-border hover:bg-button-secondary-hover disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-button-secondary",
 };
 
 const sizeStyles = {
@@ -45,7 +45,7 @@ export default function Button({
   ...props
 }: Props) {
   const classes = cn(
-    "flex flex-row items-center gap-x-1 rounded-full font-semibold transition-all duration-200 ease-in-out",
+    "flex flex-row items-center gap-x-1 rounded-full font-medium transition-all duration-200 ease-in-out",
     variantStyles[variant],
     sizeStyles[size],
     className,
