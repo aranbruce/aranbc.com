@@ -46,7 +46,7 @@
     --brand-300: oklch(0.85 0.005 288);
     --brand-400: oklch(0.8 0.005 288);
     --brand-500: oklch(0.7 0.005 288);
-    --brand-600: oklch(0.5 0.005 288);
+    --brand-600: oklch(0.48 0.005 288);
     --brand-700: oklch(0.3 0.004 288);
     --brand-800: oklch(0.21 0.002 288);
     --brand-900: oklch(0.15 0.001 288);
@@ -58,8 +58,8 @@
     --primary-foreground: var(--brand-50);
     --secondary: var(--brand-200);
     --secondary-foreground: var(--brand-600);
-    --muted: var(--brand-200);
-    --muted-foreground: var(--brand-700);
+    --muted: var(--brand-300);
+    --muted-foreground: var(--brand-500);
     --border: var(--brand-200);
     --ring: var(--brand-900);
     --card: var(--brand-50);

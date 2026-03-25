@@ -76,8 +76,8 @@ export function ThemeToggle() {
             className={cn(
               "flex h-8 w-8 cursor-pointer items-center justify-center rounded-md transition-all duration-200 ease-in-out",
               theme === value
-                ? "bg-button-primary text-button-primary-foreground hover:bg-button-primary-hover"
-                : "bg-button-secondary text-button-secondary-foreground hover:bg-button-secondary-hover",
+                ? "bg-button-primary/60 text-button-primary-foreground hover:bg-button-primary-hover/60"
+                : "bg-button-secondary/80 text-secondary-foreground/80 hover:bg-button-secondary-hover",
             )}
           >
             <span className="sr-only">{label}</span>
