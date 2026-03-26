@@ -6,11 +6,11 @@ export function Footer() {
     <footer
       className={cn(
         // Layout
-        "z-10 flex w-full flex-col items-center gap-y-6 px-6 py-8 md:px-12 lg:px-16",
+        "z-10 flex w-full flex-col items-center gap-y-6 py-8",
         // Visual
       )}
     >
-      <div className="flex w-full max-w-5xl flex-row items-start justify-between gap-y-4 md:items-center">
+      <div className="flex w-full max-w-5xl flex-col items-start justify-between gap-x-2 gap-y-4 px-6 sm:flex-row md:items-center md:px-12 lg:px-24">
         <div className="flex flex-col gap-y-1">
           <p className="text-foreground text-sm font-medium">
             Aran Bruce-Caddick
