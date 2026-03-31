@@ -15,7 +15,7 @@ export function CompanyBadge({ href, icon, name }: CompanyBadgeProps) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "border-border hover:bg-card/40 bg-card rounded-md border px-1 pb-0.5 whitespace-nowrap transition",
+        "rounded-md border border-border bg-card px-1 pb-0.5 whitespace-nowrap transition hover:bg-card/40",
       )}
     >
       {icon}

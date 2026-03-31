@@ -5,7 +5,7 @@ import { ProjectCard } from "@/components/project-card";
 export function ProjectsSection() {
   return (
     <Section>
-      <h2 className="text-foreground font-semibold">Side projects</h2>
+      <h2 className="font-semibold text-foreground">Side projects</h2>
       <div className="flex w-full flex-col gap-y-10 pb-20">
         <ProjectCard
           href="https://prdraft.ai/"

@@ -30,7 +30,7 @@ export function ProjectCard({
         // Base styles
         "group w-full overflow-hidden rounded-xl",
         // Layout & visual
-        "border-border bg-card drop-shadow-card border backdrop-blur-xs",
+        "border border-border bg-card drop-shadow-card backdrop-blur-xs",
         // Layout-specific styles
         isHorizontal ? "grid grid-cols-1 md:grid-cols-3" : "flex flex-col",
         // Custom className override
@@ -43,12 +43,12 @@ export function ProjectCard({
           isHorizontal ? "col-span-2" : "",
         )}
       >
-        <h3 className="text-foreground font-semibold">{title}</h3>
+        <h3 className="font-semibold text-foreground">{title}</h3>
         <p className="text-secondary-foreground">{description}</p>
       </div>
       <div
         className={cn(
-          "drop-shadow-card col-span-3 mt-auto flex flex-col items-end overflow-hidden pt-4 pl-4 transition-transform duration-200 ease-in-out group-hover:scale-104 group-focus-visible:scale-104",
+          "col-span-3 mt-auto flex flex-col items-end overflow-hidden pt-4 pl-4 drop-shadow-card transition-transform duration-200 ease-in-out group-hover:scale-104 group-focus-visible:scale-104",
         )}
       >
         {image}

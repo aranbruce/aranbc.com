@@ -110,7 +110,7 @@
    * that need a painted offset and can stack oddly with `shadow-*` on the same node.
    */
   *:focus-visible {
-    @apply outline-ring/40 outline-2 outline-offset-2 outline-solid;
+    @apply outline-2 outline-offset-2 outline-ring/40 outline-solid;
   }
 
   body {
@@ -163,7 +163,7 @@
   }
 
   .prose a {
-    @apply text-foreground font-semibold transition-all;
+    @apply font-semibold text-foreground transition-all;
   }
 
   .prose a:hover {
@@ -171,7 +171,7 @@
   }
 
   .prose p {
-    @apply text-secondary-foreground my-4 leading-7;
+    @apply my-4 leading-7 text-secondary-foreground;
   }
 
   .prose strong {
@@ -182,12 +182,12 @@
   .prose h2,
   .prose h3,
   .prose h4 {
-    @apply text-foreground mt-6 mb-2 font-semibold;
+    @apply mt-6 mb-2 font-semibold text-foreground;
   }
 
   .prose ul,
   .prose ol {
-    @apply text-secondary-foreground pl-6;
+    @apply pl-6 text-secondary-foreground;
   }
 
   .prose ul {
@@ -199,7 +199,7 @@
   }
 
   .prose hr {
-    @apply border-border mx-auto my-8 max-w-96 border-t border-dashed;
+    @apply mx-auto my-8 max-w-96 border-t border-dashed border-border;
   }
 
   .prose > :first-child {
@@ -213,7 +213,7 @@
 
   /* Code Blocks */
   .prose pre {
-    @apply border-border bg-muted text-muted-foreground overflow-x-auto rounded-lg border px-3 py-2 text-sm;
+    @apply overflow-x-auto rounded-lg border border-border bg-muted px-3 py-2 text-sm text-muted-foreground;
   }
 
   .prose code {

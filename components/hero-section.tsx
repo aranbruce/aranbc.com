@@ -25,7 +25,7 @@ export function HeroSection() {
           />
         </div>
         {/* Opacity gradient overlay - fade from full opacity to transparent */}
-        <div className="to-background from-background/30 via-background-40 pointer-events-none absolute inset-0 -z-10 bg-linear-to-b" />
+        <div className="via-background-40 pointer-events-none absolute inset-0 -z-10 bg-linear-to-b from-background/30 to-background" />
       </div>
 
       <div className="z-10 flex flex-col flex-wrap items-center gap-x-12 gap-y-6 md:flex-nowrap">
@@ -36,7 +36,7 @@ export function HeroSection() {
         />
         <div className="flex flex-col items-center gap-y-6 text-center">
           <div className="flex flex-col gap-y-3">
-            <h1 className="text-foreground font-semibold">Hi, I&apos;m Aran</h1>
+            <h1 className="font-semibold text-foreground">Hi, I&apos;m Aran</h1>
             <p className="text-secondary-foreground md:text-lg">
               I&apos;m a product builder 🛠️, code enthusiast 🧑‍💻 and data nerd 🤓
               who&apos;s deeply AI-curious. I currently work at{" "}
