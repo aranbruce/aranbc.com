@@ -118,31 +118,56 @@
   }
 
   /* Typography */
-  .title {
-    @apply text-4xl font-semibold text-pretty;
-  }
 
   h1,
-  .prose h1 {
-    @apply text-4xl md:text-5xl;
+  h2,
+  h3,
+  h4,
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    @apply leading-[1.2];
   }
 
-  h2,
-  .prose h2 {
+  .title {
+    @apply text-2xl font-semibold text-pretty md:text-3xl;
+  }
+
+  h1 {
     @apply text-3xl md:text-4xl;
   }
 
-  h3,
-  .prose h3 {
+  h2 {
     @apply text-2xl md:text-3xl;
   }
 
-  h4,
-  .prose h4 {
+  h3 {
     @apply text-xl md:text-2xl;
   }
 
+  h4 {
+    @apply text-lg md:text-xl;
+  }
+
   /* Prose Styles */
+  .prose title,
+  .prose h1 {
+    @apply text-xl md:text-2xl;
+  }
+
+  .prose h2 {
+    @apply text-lg md:text-xl;
+  }
+
+  .prose h3 {
+    @apply text-base md:text-lg;
+  }
+
+  .prose h4 {
+    @apply text-base;
+  }
+
   .prose .anchor {
     @apply invisible absolute no-underline;
     margin-left: -1em;
@@ -163,7 +188,7 @@
   }
 
   .prose a {
-    @apply font-semibold text-foreground transition-all;
+    @apply font-medium text-foreground transition-all;
   }
 
   .prose a:hover {
@@ -171,11 +196,11 @@
   }
 
   .prose p {
-    @apply my-4 leading-7 text-secondary-foreground;
+    @apply my-4 leading-6 text-secondary-foreground;
   }
 
   .prose strong {
-    @apply leading-7 font-medium;
+    @apply leading-6 font-medium;
   }
 
   .prose h1,
@@ -199,7 +224,7 @@
   }
 
   .prose hr {
-    @apply mx-auto my-8 max-w-96 border-t border-dashed border-border;
+    @apply mx-auto my-8 max-w-96 border border-t border-solid border-border/50;
   }
 
   .prose > :first-child {
