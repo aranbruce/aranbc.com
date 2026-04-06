@@ -1,56 +1,58 @@
 import Link from "next/link";
-import { formatDate, getBlogPosts } from "@/app/blog/utils";
+import { getBlogPosts } from "@/app/blog/utils";
 import { cn } from "@/lib/utils";
 
+function toIsoDate(publishedAt: string) {
+  return publishedAt.includes("T") ? publishedAt : `${publishedAt}T00:00:00`;
+}
+
+function formatCompactDate(publishedAt: string) {
+  return new Date(toIsoDate(publishedAt)).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
+
 export function BlogPosts() {
-  const allBlogs = getBlogPosts();
+  const posts = [...getBlogPosts()].sort(
+    (a, b) =>
+      new Date(b.metadata.publishedAt).getTime() -
+      new Date(a.metadata.publishedAt).getTime(),
+  );
 
   return (
-    <div className="flex w-full flex-col gap-y-4">
-      {allBlogs
-        .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1;
-          }
-          return 1;
-        })
-        .map((post) => (
-          <Link
-            key={post.slug}
-            className={cn(
-              // Base layout
-              "flex w-full transform flex-row items-center gap-x-8 overflow-hidden rounded-xl p-4 transition hover:scale-102",
-              // Visual styling
-              "border border-border bg-card drop-shadow-card backdrop-blur-xs",
-            )}
-            href={`/blog/${post.slug}`}
-          >
-            <div className="flex w-full flex-col gap-y-2">
-              <h4 className="font-semibold text-foreground">
-                {post.metadata.title}
-              </h4>
-              <p className="text-sm text-secondary-foreground">
-                {formatDate(post.metadata.publishedAt, false)}
-              </p>
-            </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-6 text-secondary-foreground"
+    <ul className="m-0 -mx-2.5 flex w-full list-none flex-col gap-y-2">
+      {posts.map((post) => {
+        const isoDate = toIsoDate(post.metadata.publishedAt);
+
+        return (
+          <li key={post.slug}>
+            <Link
+              href={`/blog/${post.slug}`}
+              className="group flex w-full items-baseline justify-between gap-6 rounded-full border-0 bg-transparent no-underline"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-              />
-            </svg>
-          </Link>
-        ))}
-    </div>
+              <h3 className="m-0 max-w-[min(100%,42rem)] min-w-0 text-base leading-snug">
+                <span
+                  className={cn(
+                    "inline-block w-fit max-w-full rounded-full px-2.5 py-1 text-pretty text-foreground",
+                    "bg-transparent transition-colors duration-200 ease-out",
+                    "border border-transparent group-hover:border-border group-hover:bg-card group-hover:shadow-card group-focus-visible:bg-muted",
+                  )}
+                >
+                  {post.metadata.title}
+                </span>
+              </h3>
+              <time
+                dateTime={isoDate}
+                className="shrink-0 pr-2 text-sm text-muted-foreground tabular-nums"
+              >
+                {formatCompactDate(post.metadata.publishedAt)}
+              </time>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
