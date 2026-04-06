@@ -1,12 +1,12 @@
 "use client";
 
-import type React from "react";
+import type { ReactNode } from "react";
 import { useCopyToast } from "@/components/copy-toast";
 import { cn } from "@/lib/utils";
 
 type CopyArticleTitleProps = {
   className?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export function CopyArticleTitle({ className, children }: CopyArticleTitleProps) {
@@ -22,22 +22,16 @@ export function CopyArticleTitle({ className, children }: CopyArticleTitleProps)
     }
   }
 
-  function handleKeyDown(event: React.KeyboardEvent<HTMLHeadingElement>) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      void copyUrl();
-    }
-  }
-
   return (
-    <h1
-      className={cn(className, "cursor-pointer")}
-      onClick={() => void copyUrl()}
-      onKeyDown={handleKeyDown}
-      title="Click to copy link"
-      tabIndex={0}
-    >
-      {children}
+    <h1 className={cn(className)}>
+      <button
+        type="button"
+        className="w-full cursor-pointer rounded-sm border-0 bg-transparent p-0 text-left font-[inherit] text-inherit"
+        onClick={() => void copyUrl()}
+        aria-label="Copy link to this article"
+      >
+        {children}
+      </button>
     </h1>
   );
 }
