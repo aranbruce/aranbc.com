@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { CopyToastProvider } from "@/components/copy-toast";
 import { ThemeProvider } from "@/components/theme-provider";
 
 const basierCircle = localFont({
@@ -102,11 +103,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${basierCircle.className} bg-background`}>
         <ThemeProvider>
-          <Header />
-          <div className="relative flex h-screen min-h-screen flex-col">
-            <main className="z-1 flex-1 pb-24">{children}</main>
-            <Footer />
-          </div>
+          <CopyToastProvider>
+            <Header />
+            <div className="relative flex h-screen min-h-screen flex-col">
+              <main className="z-1 flex-1 pb-24">{children}</main>
+              <Footer />
+            </div>
+          </CopyToastProvider>
         </ThemeProvider>
       </body>
     </html>

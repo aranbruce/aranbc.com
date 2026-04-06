@@ -1,56 +1,45 @@
 import Link from "next/link";
-import { formatDate, getBlogPosts } from "@/app/blog/utils";
+import { getBlogPosts } from "@/app/blog/utils";
 import { cn } from "@/lib/utils";
 
 export function BlogPosts() {
-  const allBlogs = getBlogPosts();
+  const posts = [...getBlogPosts()].sort((a, b) =>
+    b.metadata.publishedAt.localeCompare(a.metadata.publishedAt),
+  );
 
   return (
-    <div className="flex w-full flex-col gap-y-4">
-      {allBlogs
-        .sort((a, b) => {
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1;
-          }
-          return 1;
-        })
-        .map((post) => (
+    <ul className="m-0 -mx-2.5 flex w-full list-none flex-col gap-y-2">
+      {posts.map((post) => (
+        <li key={post.slug}>
           <Link
-            key={post.slug}
-            className={cn(
-              // Base layout
-              "flex w-full transform flex-row items-center gap-x-8 overflow-hidden rounded-xl p-4 transition hover:scale-102",
-              // Visual styling
-              "border border-border bg-card drop-shadow-card backdrop-blur-xs",
-            )}
             href={`/blog/${post.slug}`}
+            className="group flex w-full items-baseline justify-between gap-6 rounded-full border-0 bg-transparent no-underline"
           >
-            <div className="flex w-full flex-col gap-y-2">
-              <h4 className="font-semibold text-foreground">
+            <h3 className="m-0 max-w-[min(100%,42rem)] min-w-0 text-base leading-snug">
+              <span
+                className={cn(
+                  "inline-block w-fit max-w-full rounded-full px-2.5 py-1 text-pretty text-foreground",
+                  "bg-transparent transition-colors duration-200 ease-out",
+                  "border border-transparent group-hover:border-border group-hover:bg-card group-hover:shadow-card group-focus-visible:bg-muted",
+                )}
+              >
                 {post.metadata.title}
-              </h4>
-              <p className="text-sm text-secondary-foreground">
-                {formatDate(post.metadata.publishedAt, false)}
-              </p>
-            </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-6 text-secondary-foreground"
+              </span>
+            </h3>
+            <time
+              dateTime={post.metadata.publishedAt}
+              className="shrink-0 pr-2 text-sm text-muted-foreground tabular-nums"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-              />
-            </svg>
+              {new Date(post.metadata.publishedAt).toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+                timeZone: "UTC",
+              })}
+            </time>
           </Link>
-        ))}
-    </div>
+        </li>
+      ))}
+    </ul>
   );
 }

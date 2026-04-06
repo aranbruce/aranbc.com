@@ -69,6 +69,9 @@
     --button-secondary: var(--brand-50);
     --button-secondary-hover: var(--brand-100);
     --button-secondary-foreground: var(--brand-800);
+
+    /* Fixed header (`components/header.tsx`): keep hash / in-view scroll targets below the bar */
+    --anchor-scroll-padding: 6rem;
   }
 
   .dark {
@@ -115,6 +118,16 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /*
+   * Do not set scroll-behavior: smooth on html — it also animates scroll resets after
+   * client-side navigations (e.g. Next.js), so new pages visibly "scroll" to the top.
+   * In-page smooth scrolling for section anchors is handled in components/heading-anchor.tsx
+   * via scrollIntoView({ behavior: "smooth" }).
+   */
+  html {
+    scroll-padding-top: var(--anchor-scroll-padding);
   }
 
   /* Typography */

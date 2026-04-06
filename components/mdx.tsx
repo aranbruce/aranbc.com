@@ -4,6 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 import React from "react";
 import { cn } from "@/lib/utils";
+import { HeadingAnchor } from "@/components/heading-anchor";
 
 function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
   const headers = data.headers.map((header, index) => (
@@ -91,10 +92,9 @@ function createHeading(level: number) {
       `h${level}`,
       { id: slug, className: "font-semibold" },
       [
-        React.createElement("a", {
-          href: `#${slug}`,
+        React.createElement(HeadingAnchor, {
+          slug,
           key: `link-${slug}`,
-          className: "anchor",
         }),
       ],
       children,

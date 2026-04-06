@@ -1,0 +1,61 @@
+---
+title: "A practical guide to shipping Gen AI in production"
+publishedAt: "2024-07-29"
+summary: "Most teams spend too long picking models and not long enough thinking about evals. Here's a practical breakdown of how to actually ship Gen AI features in production: from prompt design to deployment, monitoring, and iteration."
+---
+
+The barrier to getting a Gen AI feature working is low. The barrier to getting one that works reliably in production is considerably higher, and the gap between the two is where most teams get stuck.
+
+The difficulty is rarely the model. It's everything around it: how you design prompts, how you test outputs that are inherently non-deterministic, how you catch regressions before users do, and how you know when things are quietly going wrong at scale. Most teams get this backwards. They spend weeks evaluating models and days thinking about evals. It should be the opposite.
+
+## Pick a model and move on
+
+Don't spend weeks evaluating models before you have a working prompt. Start with whichever leading model your provider offers, establish what good output looks like for your task, then decide if a cheaper or faster model can match it. Optimising for cost before you've defined quality is premature.
+
+The model landscape moves fast enough that any choice you make now may look different in six months. What doesn't change is whether you have evals in place to measure the difference. Build those first.
+
+## Engineer your prompts
+
+The prompt is your main interface with the model. It has more impact on output quality than model choice, and it's the thing most teams underinvest in.
+
+Treat prompts like code: version control them, document changes, be deliberate about modifications. Small wording changes can have outsized effects on output quality, and you need to be able to trace what changed when something breaks. This sounds obvious and almost nobody does it at first.
+
+The elements that actually move quality are role and context, specific instructions, examples, structured output, and explicit permission for the model to be uncertain. Tell the model what it is and what it's trying to accomplish. This shapes tone, scope, and what the model treats as relevant. Vague instructions produce vague outputs: if you want three bullet points, say so. One or two examples of expected output (few-shot prompting) reliably improves quality, especially for tasks with a specific format or tone. If your application needs to parse the response, specify the format. Native structured outputs with a defined schema are far more reliable than asking the model to "respond in JSON." And tell the model to flag uncertainty explicitly. Hallucinations spike when the model feels compelled to answer rather than acknowledge the limits of its knowledge. Give it permission to say it doesn't know, and it will.
+
+## Build evals before you need them
+
+Testing Gen AI is fundamentally different from testing deterministic software. You can't write a unit test that checks for an exact string match. What you actually care about is whether outputs are good, and defining "good" rigorously is the hard part.
+
+Build your eval suite early: before you change models, before you refine prompts at scale, before you ship. This is the thing teams most often skip and most often regret.
+
+Start by collecting real examples. What does a genuinely useful response look like? What does a bad one look like? Build a labelled dataset that captures the range of inputs your system will see in production. Human judgements are the ground truth here, and there's no shortcut.
+
+For the evals themselves, the right approach depends on the task. Rule-based checks work well for structured outputs or classification tasks with a clear right answer (fast, cheap, unambiguous). LLM-as-judge (using a model to evaluate another model's output against a rubric) is more flexible and works for open-ended tasks, but the rubric quality is everything. Human review is slow and expensive, but necessary for high-stakes outputs and for calibrating your automated evals.
+
+In practice, automated evals catch most regressions. Human review catches the subtle failures that automated evals miss. You need both.
+
+Run evals on every change. Treat this like tests in CI: run them when you change prompts, when you upgrade models, when you update pre- or post-processing logic. The goal is to catch regressions before users do, not to discover them from support tickets.
+
+## Deploy carefully
+
+Non-determinism makes deployment riskier than it looks. A feature can behave well in testing and inconsistently in production simply because the distribution of real inputs is wider and stranger than anything you anticipated.
+
+Test against your production model and production prompt in a staging environment. Behaviour can differ between API versions, and what looked fine in development can break unexpectedly at scale. Roll out gradually: start with a small percentage of traffic, monitor closely, expand as confidence grows. For user-facing AI outputs, a bad rollout causes user harm that's harder to undo than a broken UI.
+
+Have a feature flag. Know exactly how you'll turn the feature off if something goes wrong. Design the integration so the AI component can be disabled without taking down the surrounding system. This should be a first-class requirement, not an afterthought.
+
+## Monitor outputs in production
+
+Your eval suite tells you how the model performs on known inputs. Production tells you what happens when real users interact with your system. These are different things, and production is always more surprising.
+
+Log everything: inputs, outputs, latency, cost. This data is essential for debugging, tracking performance over time, and building the next version of your eval suite. Storage is cheap; not having logs when something goes wrong is expensive.
+
+Watch for signals specific to AI output quality. Thumbs up/down, corrections, abandonment, or users immediately re-asking a question all indicate model performance. Run the same rubrics you use in evals against a sample of live outputs; this catches degradation that user feedback misses. And track cost: token usage can spike unexpectedly if input structure changes, and it belongs in your monitoring dashboard alongside the other metrics.
+
+Close the feedback loop. Production failures are your best source of data for improving your eval suite. Regularly review flagged outputs, add interesting cases to your eval dataset, and treat production issues as eval coverage gaps. The loop between production monitoring and eval improvement is what makes the system better over time. Most teams break it by treating evals as a one-time setup task.
+
+---
+
+The gap between a prototype and a reliable production feature is mostly about the surrounding system: evals, deployment discipline, monitoring, and iteration. Not the model. The model is the easy part.
+
+One caveat worth making explicit: not every task AI can do should be automated. For high-stakes outputs, advisory beats conclusive. But that's a design decision, not a reason to avoid shipping.
