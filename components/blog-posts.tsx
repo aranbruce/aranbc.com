@@ -34,6 +34,7 @@ export function BlogPosts() {
                 day: "numeric",
                 month: "short",
                 year: "numeric",
+                timeZone: "UTC",
               })}
             </time>
           </Link>

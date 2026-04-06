@@ -100,6 +100,7 @@ export default async function Blog(props: { params: Promise<Params> }) {
                 day: "numeric",
                 month: "long",
                 year: "numeric",
+                timeZone: "UTC",
               })}
             </time>
           </p>
