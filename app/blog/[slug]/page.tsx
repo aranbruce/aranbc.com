@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { CopyArticleTitle } from "@/components/copy-article-title";
 import { CustomMDX } from "@/components/mdx";
-import { formatDate, getBlogPosts } from "@/app/blog/utils";
+import { getBlogPosts } from "@/app/blog/utils";
 import { baseUrl } from "@/app/sitemap";
 
 interface Params {
@@ -95,7 +95,13 @@ export default async function Blog(props: { params: Promise<Params> }) {
         </CopyArticleTitle>
         <div className="mt-2 mb-4 flex items-center justify-between text-sm">
           <p className="font-medium text-secondary-foreground">
-            {formatDate(post.metadata.publishedAt)}
+            <time dateTime={post.metadata.publishedAt}>
+              {new Date(post.metadata.publishedAt).toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+            </time>
           </p>
         </div>
         <article className="prose">

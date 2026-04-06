@@ -1,6 +1,6 @@
 "use client";
 
-import type React from "react";
+import type { MouseEvent } from "react";
 import { useCopyToast } from "@/components/copy-toast";
 
 type HeadingAnchorProps = {
@@ -10,7 +10,7 @@ type HeadingAnchorProps = {
 export function HeadingAnchor({ slug }: HeadingAnchorProps) {
   const showToast = useCopyToast();
 
-  async function handleClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  async function handleClick(event: MouseEvent<HTMLAnchorElement>) {
     if (
       event.defaultPrevented ||
       event.button !== 0 ||
