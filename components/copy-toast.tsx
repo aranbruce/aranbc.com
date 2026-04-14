@@ -51,9 +51,7 @@ export function CopyToastProvider({ children }: { children: ReactNode }) {
       <div
         className={cn(
           "pointer-events-none fixed bottom-8 left-1/2 z-50 flex -translate-x-1/2 justify-center px-4 transition-[opacity,transform] duration-200 ease-out",
-          open
-            ? "translate-y-0 opacity-100"
-            : "translate-y-1 opacity-0",
+          open ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0",
         )}
         aria-hidden={!open}
       >

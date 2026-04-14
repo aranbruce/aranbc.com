@@ -5,7 +5,9 @@ export function GET() {
   const allBlogs = getBlogPosts();
 
   const itemsXml = allBlogs
-    .sort((a, b) => b.metadata.publishedAt.localeCompare(a.metadata.publishedAt))
+    .sort((a, b) =>
+      b.metadata.publishedAt.localeCompare(a.metadata.publishedAt),
+    )
     .map(
       (post) =>
         `<item>
