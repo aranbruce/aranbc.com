@@ -1,54 +1,14 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CopyToastProvider } from "@/components/copy-toast";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const basierCircle = localFont({
-  src: [
-    {
-      path: "./fonts/basier-circle/basier-circle-regular-webfont/basier-circle-regular-webfont.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/basier-circle/basier-circle-regular-italic-webfont/basier-circle-regular-italic-webfont.woff2",
-      weight: "400",
-      style: "italic",
-    },
-    {
-      path: "./fonts/basier-circle/basier-circle-medium-webfont/basier-circle-medium-webfont.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "./fonts/basier-circle/basier-circle-medium-italic-webfont/basier-circle-medium-italic-webfont.woff2",
-      weight: "500",
-      style: "italic",
-    },
-    {
-      path: "./fonts/basier-circle/basier-circle-semibold-webfont/basier-circle-semibold-webfont.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "./fonts/basier-circle/basier-circle-semibold-italic-webfont/basier-circle-semibold-italic-webfont.woff2",
-      weight: "600",
-      style: "italic",
-    },
-    {
-      path: "./fonts/basier-circle/basier-circle-bold-webfont/basier-circle-bold-webfont.woff2",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "./fonts/basier-circle/basier-circle-bold-italic-webfont/basier-circle-bold-italic-webfont.woff2",
-      weight: "700",
-      style: "italic",
-    },
-  ],
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -101,12 +61,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${basierCircle.className} bg-background`}>
+      <body className={`${inter.variable} bg-background font-sans antialiased`}>
         <ThemeProvider>
           <CopyToastProvider>
             <Header />
-            <div className="relative flex h-screen min-h-screen flex-col">
-              <main className="z-1 flex-1 pb-24">{children}</main>
+            <div className="relative flex min-h-screen flex-col">
+              <main className="z-1 flex-1">{children}</main>
               <Footer />
             </div>
           </CopyToastProvider>

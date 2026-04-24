@@ -480,7 +480,7 @@ void main() {
   return (
     <div
       ref={containerRef}
-      className={`pointer-events-none relative z-[3] h-full w-full overflow-hidden ${className}`.trim()}
+      className={`pointer-events-none relative z-10 h-full w-full overflow-hidden ${className}`.trim()}
     />
   );
 };

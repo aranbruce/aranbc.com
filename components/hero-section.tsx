@@ -1,65 +1,128 @@
+"use client";
+
+import Image from "next/image";
 import Button from "@/components/button";
-import Section from "@/components/section";
-import LightRays from "@/components/light-rays";
-import { ProfileBadge } from "@/components/profile-badge";
 import { CompanyBadge } from "@/components/company-badge";
 import CrezcoIcon from "@/app/images/crezco";
+import { cn } from "@/lib/utils";
+
+function getUKTimezone() {
+  return (
+    new Intl.DateTimeFormat("en", {
+      timeZone: "Europe/London",
+      timeZoneName: "shortOffset",
+    })
+      .formatToParts(new Date())
+      .find((p) => p.type === "timeZoneName")?.value ?? "GMT+1"
+  );
+}
 
 export function HeroSection() {
-  return (
-    <Section>
-      <div className="absolute inset-0 top-0 left-0 -z-10 h-screen w-full">
-        <div className="relative -z-10 h-full w-full">
-          <LightRays
-            raysOrigin="top-center"
-            darkRaysColor="#aeabd9"
-            lightRaysColor="#36344b"
-            raysSpeed={2}
-            lightSpread={1}
-            rayLength={3}
-            followMouse={true}
-            mouseInfluence={0.4}
-            noiseAmount={0}
-            distortion={0.05}
-            saturation={2}
-          />
-        </div>
-        {/* Opacity gradient overlay - fade from full opacity to transparent */}
-        <div className="via-background-40 pointer-events-none absolute inset-0 -z-10 bg-linear-to-b from-background/30 to-background" />
-      </div>
+  const ukTz = getUKTimezone();
 
-      <div className="z-10 flex flex-col flex-wrap items-center gap-x-12 gap-y-6 md:flex-nowrap">
-        <ProfileBadge
-          src="/aran.png"
-          alt="Aran Bruce-Caddick"
-          name="Aran Bruce-Caddick"
-        />
-        <div className="flex flex-col items-center gap-y-6 text-center">
-          <div className="flex flex-col gap-y-3">
-            <h1 className="font-semibold text-foreground">Hi, I&apos;m Aran</h1>
-            <p className="text-secondary-foreground md:text-lg">
-              I&apos;m a product builder 🛠️, code enthusiast 🧑‍💻 and data nerd 🤓
-              who&apos;s deeply AI-curious. I currently work at{" "}
-              <span>
-                <CompanyBadge
-                  href="https://www.crezco.com/"
-                  icon={<CrezcoIcon />}
-                  name="Crezco"
-                />
-              </span>
-              , building products that make money easy and help grow 🌱 the
-              global economy
-            </p>
+  return (
+    <>
+      {/* Hero */}
+      <section className="relative flex flex-col items-center overflow-hidden border-b border-border-translucent">
+        {/* Background gradient — indigo glow from top */}
+        <div className="hero-bg pointer-events-none absolute inset-0" />
+        {/* Fade to bg at bottom */}
+        <div className="hero-fade pointer-events-none absolute inset-x-0 bottom-0 h-48" />
+
+        <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center gap-7 px-12 pt-44 pb-24 text-center">
+          {/* Profile pill */}
+          <div className="shadow-lift inline-flex items-center gap-3 rounded-full border bg-card/30 p-1 pr-4 backdrop-blur-md">
+            <Image
+              src="/aran.png"
+              alt="Aran Bruce-Caddick"
+              width={36}
+              height={36}
+              priority
+              className="rounded-full border border-border-translucent bg-background object-cover"
+            />
+            <span className="font-medium text-secondary-foreground">
+              Aran Bruce-Caddick
+            </span>
           </div>
-          <Button
-            variant="primary"
-            size="medium"
-            href="mailto:aranbruce@gmail.com"
-          >
-            Get in touch
-          </Button>
+
+          {/* Headline */}
+          <h1 className="font-heading tracking-tighter text-balance">
+            <span className="gradient-text-foreground">
+              Hi, I&apos;m Aran and I like to
+            </span>{" "}
+            <span className="gradient-text-accent">build things.</span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-lg leading-relaxed text-balance text-muted-foreground">
+            I&apos;m a product builder 🛠️, code enthusiast 🧑‍💻 and data nerd 🤓
+            who&apos;s deeply AI-curious. I currently work at{" "}
+            <CompanyBadge
+              href="https://www.crezco.com/"
+              icon={<CrezcoIcon />}
+              name="Crezco"
+            />
+            , building products that make money easy and help grow 🌱 the global
+            economy
+          </p>
+
+          {/* CTAs */}
+          <div className="flex items-center gap-3">
+            <Button asChild variant="primary">
+              <a href="mailto:aranbruce@gmail.com">Get in touch</a>
+            </Button>
+            <Button
+              variant="secondary"
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              View side projects
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* KPI strip — Linear uses tight grid with translucent borders between cells */}
+      <div className="w-full border-b border-border-translucent">
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 px-3 sm:grid-cols-3">
+          {[
+            {
+              label: "Based in",
+              value: "London, UK",
+              sub: `${ukTz}, happy to overlap`,
+            },
+            {
+              label: "Currently at",
+              value: "Crezco",
+              sub: "Helping businesses move money effortlessly",
+            },
+            {
+              label: "Experience",
+              value: `${new Date().getFullYear() - 2018}+ years in product`,
+              sub: "Fintech, payments, SaaS",
+            },
+          ].map((kpi, i) => (
+            <div
+              key={i}
+              className={cn(
+                "flex flex-col gap-1.5 px-12 py-7",
+                i < 2 && "border-r border-b border-border-translucent",
+              )}
+            >
+              <span className="text-kpi-label">{kpi.label}</span>
+              <span className="text-base tracking-tight text-foreground">
+                {kpi.value}
+              </span>
+              <span className="text-caption text-muted-foreground">
+                {kpi.sub}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
-    </Section>
+    </>
   );
 }

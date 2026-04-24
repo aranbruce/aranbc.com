@@ -15,11 +15,11 @@ export function CompanyBadge({ href, icon, name }: CompanyBadgeProps) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "rounded-md border border-border bg-card px-1 pb-0.5 whitespace-nowrap transition hover:bg-card/40",
+        "inline-flex items-center gap-1 rounded-full border border-border-translucent bg-muted px-2 py-0.5 whitespace-nowrap backdrop-blur-sm transition hover:bg-muted/40",
       )}
     >
       {icon}
-      <span className="text-sm font-medium">{name}</span>
+      <span className="text-sm font-medium text-foreground">{name}</span>
     </Link>
   );
 }

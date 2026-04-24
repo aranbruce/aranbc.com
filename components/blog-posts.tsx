@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { getBlogPosts } from "@/app/blog/utils";
-import { cn } from "@/lib/utils";
 
 export function BlogPosts() {
   const posts = [...getBlogPosts()].sort((a, b) =>
@@ -8,38 +7,48 @@ export function BlogPosts() {
   );
 
   return (
-    <ul className="m-0 -mx-2.5 flex w-full list-none flex-col gap-y-2">
+    <div className="flex flex-col">
       {posts.map((post) => (
-        <li key={post.slug}>
-          <Link
-            href={`/blog/${post.slug}`}
-            className="group flex w-full items-baseline justify-between gap-6 rounded-full border-0 bg-transparent no-underline"
+        <Link
+          key={post.slug}
+          href={`/blog/${post.slug}`}
+          className="group grid items-center gap-4 py-4 transition-colors sm:grid-cols-[160px_1fr_20px] border-t border-border-translucent"
+        >
+          {/* Date */}
+          <time
+            dateTime={post.metadata.publishedAt}
+            className="text-caption hidden [font-variant-numeric:tabular-nums] sm:block"
           >
-            <h3 className="m-0 max-w-[min(100%,42rem)] min-w-0 text-base leading-snug">
-              <span
-                className={cn(
-                  "inline-block w-fit max-w-full rounded-full px-2.5 py-1 text-pretty text-foreground",
-                  "bg-transparent transition-colors duration-200 ease-out",
-                  "border border-transparent group-hover:border-border group-hover:bg-card group-hover:shadow-card group-focus-visible:bg-muted",
-                )}
-              >
-                {post.metadata.title}
-              </span>
-            </h3>
+            {new Date(post.metadata.publishedAt).toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+              timeZone: "UTC",
+            })}
+          </time>
+
+          {/* Title */}
+          <span className="col-span-2 text-sm leading-snug tracking-tight text-secondary-foreground sm:col-span-1">
+            {post.metadata.title}
+            {/* Mobile date */}
             <time
               dateTime={post.metadata.publishedAt}
-              className="shrink-0 pr-2 text-sm text-muted-foreground tabular-nums"
+              className="text-muted-xs ml-2 font-normal sm:hidden"
             >
               {new Date(post.metadata.publishedAt).toLocaleDateString("en-GB", {
-                day: "numeric",
                 month: "short",
                 year: "numeric",
                 timeZone: "UTC",
               })}
             </time>
-          </Link>
-        </li>
+          </span>
+
+          {/* Arrow */}
+          <span className="text-caption hidden text-sm transition-colors group-hover:text-foreground sm:block">
+            →
+          </span>
+        </Link>
       ))}
-    </ul>
+    </div>
   );
 }

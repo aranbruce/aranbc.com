@@ -3,6 +3,7 @@ export interface BlogMetadata {
   publishedAt: string;
   summary: string;
   image?: string;
+  category?: string;
 }
 
 export interface BlogPost {

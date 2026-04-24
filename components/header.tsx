@@ -1,44 +1,53 @@
+"use client";
+
 import Link from "next/link";
-import Button from "./button";
-import Logo from "@/app/images/logo";
-import LinkedInIcon from "@/app/images/linkedin";
 import GithubIcon from "@/app/images/github";
+import LinkedInIcon from "@/app/images/linkedin";
+import Button from "@/components/button";
 
 export function Header() {
   return (
-    <nav className="fixed left-1/2 z-20 mt-2 flex w-full max-w-5xl -translate-x-1/2 flex-col items-center px-6 py-2 md:px-12 lg:px-24">
-      <div className="flex w-full flex-row items-center justify-between rounded-2xl border border-border bg-card/40 px-2 py-2 backdrop-blur-sm md:px-4">
-        <Link
-          href="/"
-          aria-label="Aran Bruce-Caddick logo"
-          className="rounded-sm text-foreground"
-        >
-          <Logo />
-        </Link>
+    <header className="fixed inset-x-0 top-0 z-100 mx-auto mt-4 flex items-start justify-center">
+      <div className="mx-4 flex h-12 w-full max-w-5xl items-center rounded-full border border-border-subtle bg-background/60 px-3 backdrop-blur-xl">
+        {/* Left: logo */}
+        <div className="flex flex-1 items-center">
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-sm font-medium tracking-normal text-foreground"
+          >
+            <span className="logo-gradient flex h-5.5 w-5.5 shrink-0 items-center justify-center rounded-md shadow-logo-glow" />
+            <span>aranbc</span>
+          </Link>
+        </div>
 
-        <div className="flex flex-row items-stretch gap-x-2">
+        <div className="flex items-center gap-2">
+          <Button asChild variant="primary" size="small" className="h-8.5">
+            <a
+              href="https://www.linkedin.com/in/aranbc/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon width={14} height={14} />
+              <span className="hidden sm:inline">LinkedIn</span>
+            </a>
+          </Button>
           <Button
+            asChild
             variant="secondary"
             size="small"
-            href="https://www.linkedin.com/in/aranbc/"
-            openInNewTab
-            aria-label="LinkedIn"
+            className="inline-flex"
           >
-            <LinkedInIcon />
-            <span className="hidden sm:inline">LinkedIn</span>
-          </Button>
-
-          <Button
-            variant="primary"
-            size="small"
-            href="https://github.com/aranbruce"
-            openInNewTab
-          >
-            <GithubIcon />
-            <span>GitHub</span>
+            <a
+              href="https://github.com/aranbruce"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon width={14} height={14} />
+              GitHub
+            </a>
           </Button>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }

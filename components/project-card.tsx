@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
+import { Badge } from "@/components/badge";
 
 interface ProjectCardProps {
   href: string;
@@ -8,6 +9,9 @@ interface ProjectCardProps {
   description: string;
   image: ReactNode;
   layout?: "horizontal" | "vertical";
+  status?: string;
+  statusColor?: string;
+  year?: string;
   className?: string;
 }
 
@@ -17,6 +21,7 @@ export function ProjectCard({
   description,
   image,
   layout = "horizontal",
+  year,
   className,
 }: ProjectCardProps) {
   const isHorizontal = layout === "horizontal";
@@ -27,28 +32,48 @@ export function ProjectCard({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        // Base styles
-        "group w-full overflow-hidden rounded-xl",
-        // Layout & visual
-        "border border-border bg-card drop-shadow-card backdrop-blur-xs",
-        // Layout-specific styles
+        "group shadow-lift w-full overflow-hidden rounded-xl border border-border-translucent bg-card transition-colors",
         isHorizontal ? "grid grid-cols-1 md:grid-cols-3" : "flex flex-col",
-        // Custom className override
         className,
       )}
     >
       <div
         className={cn(
-          "flex flex-col gap-y-2 p-6",
+          "flex flex-col gap-3 p-6",
           isHorizontal ? "col-span-2" : "",
         )}
       >
-        <h3 className="font-semibold text-foreground">{title}</h3>
-        <p className="text-secondary-foreground">{description}</p>
+        {/* Status badge */}
+        {year && (
+          <Badge variant="status" dotColor={"#27a644"}>
+            {year}
+          </Badge>
+        )}
+
+        {/* Title */}
+        <h3
+          className={cn(
+            "leading-none font-heading tracking-tight text-foreground",
+            isHorizontal ? "text-xl" : "text-lg",
+          )}
+        >
+          {title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-sm leading-normal text-muted-foreground">
+          {description}
+        </p>
+
+        {/* Link */}
+        <span className="text-caption mt-auto text-accent-light transition-colors">
+          {href.replace(/^https?:\/\//, "")} ↗
+        </span>
       </div>
+
       <div
         className={cn(
-          "col-span-3 mt-auto flex flex-col items-end overflow-hidden pt-4 pl-4 drop-shadow-card transition-transform duration-200 ease-in-out group-hover:scale-104 group-focus-visible:scale-104",
+          "col-span-3 mt-auto flex flex-col items-end overflow-hidden pt-4 pl-4 transition-transform duration-300 ease-out group-hover:scale-[1.015]",
         )}
       >
         {image}

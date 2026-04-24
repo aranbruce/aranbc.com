@@ -9,10 +9,7 @@ type CopyArticleTitleProps = {
   children: ReactNode;
 };
 
-export function CopyArticleTitle({
-  className,
-  children,
-}: CopyArticleTitleProps) {
+export function CopyArticleTitle({ className, children }: CopyArticleTitleProps) {
   const showToast = useCopyToast();
 
   async function copyUrl() {
@@ -26,10 +23,15 @@ export function CopyArticleTitle({
   }
 
   return (
-    <h1 className={cn(className)}>
+    <h1
+      className={cn(
+        "mb-6 text-[clamp(1.75rem,4vw,2.5rem)] font-heading text-foreground",
+        className,
+      )}
+    >
       <button
         type="button"
-        className="w-full cursor-pointer rounded-sm border-0 bg-transparent p-0 text-left font-[inherit] text-inherit"
+        className="w-full cursor-pointer rounded-sm border-0 bg-transparent p-0 text-left text-inherit"
         onClick={() => void copyUrl()}
         aria-label="Copy link to this article"
       >

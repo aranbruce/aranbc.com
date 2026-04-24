@@ -3,6 +3,7 @@ import { CopyArticleTitle } from "@/components/copy-article-title";
 import { CustomMDX } from "@/components/mdx";
 import { getBlogPosts } from "@/app/blog/utils";
 import { baseUrl } from "@/app/sitemap";
+import { Badge } from "@/components/badge";
 
 interface Params {
   slug: string;
@@ -67,7 +68,7 @@ export default async function Blog(props: { params: Promise<Params> }) {
 
   return (
     <section className="flex flex-col items-center">
-      <div className="flex w-full max-w-[812px] flex-col items-start px-6 pt-48 pb-4 md:px-12 lg:px-24">
+      <div className="flex w-full max-w-2xl flex-col items-start px-6 pt-40 pb-24 md:px-8">
         <script
           type="application/ld+json"
           suppressHydrationWarning
@@ -85,27 +86,33 @@ export default async function Blog(props: { params: Promise<Params> }) {
               url: `${baseUrl}/blog/${post.slug}`,
               author: {
                 "@type": "Person",
-                name: "My Portfolio",
+                name: "Aran Bruce-Caddick",
               },
             }),
           }}
         />
-        <CopyArticleTitle className="title tracking-tighter text-foreground">
-          {post.metadata.title}
-        </CopyArticleTitle>
-        <div className="mt-2 mb-4 flex items-center justify-between text-sm">
-          <p className="font-medium text-secondary-foreground">
-            <time dateTime={post.metadata.publishedAt}>
-              {new Date(post.metadata.publishedAt).toLocaleDateString("en-GB", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-                timeZone: "UTC",
-              })}
-            </time>
-          </p>
+
+        {/* Category + date eyebrow */}
+        <div className="mb-6 flex items-center gap-3 text-caption">
+          {post.metadata.category && (
+            <>
+              <Badge variant="category">{post.metadata.category}</Badge>
+              <span className="text-border">·</span>
+            </>
+          )}
+          <time dateTime={post.metadata.publishedAt}>
+            {new Date(post.metadata.publishedAt).toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+              timeZone: "UTC",
+            })}
+          </time>
         </div>
-        <article className="prose">
+
+        <CopyArticleTitle>{post.metadata.title}</CopyArticleTitle>
+
+        <article className="prose w-full">
           <CustomMDX source={post.content} />
         </article>
       </div>

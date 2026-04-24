@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "@/components/button";
 
 export default function NotFound() {
@@ -9,7 +10,9 @@ export default function NotFound() {
           The page you&apos;re looking for doesn&apos;t exist or has been moved
         </p>
       </div>
-      <Button href="/">Go back</Button>
+      <Button asChild>
+        <Link href="/">Go back</Link>
+      </Button>
     </div>
   );
 }
