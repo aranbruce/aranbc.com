@@ -1,6 +1,45 @@
 import Image from "next/image";
 import { ProjectCard } from "@/components/project-card";
 
+function ThemedImage({
+  src,
+  darkSrc,
+  alt,
+  width,
+  height,
+  sizes,
+}: {
+  src: string;
+  darkSrc: string;
+  alt: string;
+  width: number;
+  height: number;
+  sizes: string;
+}) {
+  return (
+    <>
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        loading="lazy"
+        sizes={sizes}
+        className="dark:hidden"
+      />
+      <Image
+        src={darkSrc}
+        alt={alt}
+        width={width}
+        height={height}
+        loading="lazy"
+        sizes={sizes}
+        className="hidden dark:block"
+      />
+    </>
+  );
+}
+
 export function ProjectsSection() {
   return (
     <section
@@ -54,12 +93,12 @@ export function ProjectsSection() {
             year="2025"
             layout="horizontal"
             image={
-              <Image
+              <ThemedImage
                 src="/prdraftAi.svg"
+                darkSrc="/prdraftAi-dark.svg"
                 alt="PRDraft AI website in browser"
                 width={480}
                 height={276}
-                loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 600px"
               />
             }
@@ -74,12 +113,12 @@ export function ProjectsSection() {
               year="2023"
               layout="vertical"
               image={
-                <Image
+                <ThemedImage
                   src="/promptPoint.svg"
+                  darkSrc="/promptPoint-dark.svg"
                   alt="PromptPoint website in browser"
                   width={480}
                   height={276}
-                  loading="lazy"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 450px"
                 />
               }
@@ -91,12 +130,12 @@ export function ProjectsSection() {
               year="2022"
               layout="vertical"
               image={
-                <Image
+                <ThemedImage
                   src="/wanderAi.svg"
+                  darkSrc="/wanderAi-dark.svg"
                   alt="WanderAI website in browser"
                   width={480}
                   height={276}
-                  loading="lazy"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 450px"
                 />
               }
@@ -110,12 +149,12 @@ export function ProjectsSection() {
             year="2023"
             layout="horizontal"
             image={
-              <Image
+              <ThemedImage
                 src="/palAi.svg"
+                darkSrc="/palAi-dark.svg"
                 alt="PalAI website in browser"
                 width={480}
                 height={276}
-                loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 600px"
               />
             }

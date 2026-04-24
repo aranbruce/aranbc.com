@@ -54,7 +54,7 @@ export function HeroSection() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg leading-relaxed text-balance text-muted-foreground">
+          <p className="leading-relaxed text-balance text-muted-foreground md:text-lg">
             I&apos;m a product builder 🛠️, code enthusiast 🧑‍💻 and data nerd 🤓
             who&apos;s deeply AI-curious. I currently work at{" "}
             <CompanyBadge
@@ -87,7 +87,7 @@ export function HeroSection() {
 
       {/* KPI strip — Linear uses tight grid with translucent borders between cells */}
       <div className="w-full border-b border-border-translucent">
-        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 px-3 sm:grid-cols-3">
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 sm:grid-cols-3 sm:px-3">
           {[
             {
               label: "Based in",
@@ -109,7 +109,7 @@ export function HeroSection() {
               key={i}
               className={cn(
                 "flex flex-col gap-1.5 px-12 py-7",
-                i < 2 && "border-r border-b border-border-translucent",
+                i < 2 && "border-b border-border-translucent sm:border-r",
               )}
             >
               <span className="text-kpi-label">{kpi.label}</span>
