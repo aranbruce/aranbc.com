@@ -93,7 +93,7 @@ export default async function Blog(props: { params: Promise<Params> }) {
         />
 
         {/* Category + date eyebrow */}
-        <div className="mb-6 flex items-center gap-3 text-caption">
+        <div className="text-caption mb-6 flex items-center gap-3">
           {post.metadata.category && (
             <>
               <Badge variant="category">{post.metadata.category}</Badge>

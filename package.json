@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "format:all": "eslint . --fix && prettier --write ."
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

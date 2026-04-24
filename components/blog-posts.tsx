@@ -12,7 +12,7 @@ export function BlogPosts() {
         <Link
           key={post.slug}
           href={`/blog/${post.slug}`}
-          className="group grid items-center gap-4 py-4 transition-colors sm:grid-cols-[160px_1fr_20px] border-t border-border-translucent"
+          className="group grid items-center gap-4 border-t border-border-translucent py-4 transition-colors sm:grid-cols-[160px_1fr_20px]"
         >
           {/* Date */}
           <time

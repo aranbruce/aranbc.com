@@ -9,7 +9,10 @@ type CopyArticleTitleProps = {
   children: ReactNode;
 };
 
-export function CopyArticleTitle({ className, children }: CopyArticleTitleProps) {
+export function CopyArticleTitle({
+  className,
+  children,
+}: CopyArticleTitleProps) {
   const showToast = useCopyToast();
 
   async function copyUrl() {
