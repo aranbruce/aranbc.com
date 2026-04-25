@@ -67,7 +67,11 @@
     --card: #ffffff;
     --button-primary: #1a1a1a;
     --button-primary-bg: linear-gradient(180deg, #2d2d2d 0%, #1a1a1a 100%);
-    --button-primary-bg-hover: linear-gradient(180deg, #3d3d3d 0%, #2d2d2d 100%);
+    --button-primary-bg-hover: linear-gradient(
+      180deg,
+      #3d3d3d 0%,
+      #2d2d2d 100%
+    );
     --button-primary-foreground: #ffffff;
     --button-secondary: #ffffff;
     --button-secondary-hover: #f5f4f0;
@@ -136,7 +140,11 @@
     --card: #0f1011;
     --button-primary: #e5e5e6;
     --button-primary-bg: linear-gradient(180deg, #ffffff 0%, #e5e5e6 100%);
-    --button-primary-bg-hover: linear-gradient(180deg, #d0d0d2 0%, #e5e5e6 100%);
+    --button-primary-bg-hover: linear-gradient(
+      180deg,
+      #d0d0d2 0%,
+      #e5e5e6 100%
+    );
     --button-primary-foreground: #0d0e10;
     --button-secondary: #1c1c1f;
     --button-secondary-hover: #232326;

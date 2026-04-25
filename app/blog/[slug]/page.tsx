@@ -68,53 +68,53 @@ export default async function Blog(props: { params: Promise<Params> }) {
   }
 
   return (
-    <Section className="*:max-w-2xl pb-24 md:px-8 lg:px-8">
-        <script
-          type="application/ld+json"
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BlogPosting",
-              headline: post.metadata.title,
-              datePublished: post.metadata.publishedAt,
-              dateModified: post.metadata.publishedAt,
-              description: post.metadata.summary,
-              image: post.metadata.image
-                ? `${baseUrl}${post.metadata.image}`
-                : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-              url: `${baseUrl}/blog/${post.slug}`,
-              author: {
-                "@type": "Person",
-                name: "Aran Bruce-Caddick",
-              },
-            }),
-          }}
-        />
+    <Section className="pb-24 *:max-w-2xl md:px-8 lg:px-8">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.metadata.title,
+            datePublished: post.metadata.publishedAt,
+            dateModified: post.metadata.publishedAt,
+            description: post.metadata.summary,
+            image: post.metadata.image
+              ? `${baseUrl}${post.metadata.image}`
+              : `/og?title=${encodeURIComponent(post.metadata.title)}`,
+            url: `${baseUrl}/blog/${post.slug}`,
+            author: {
+              "@type": "Person",
+              name: "Aran Bruce-Caddick",
+            },
+          }),
+        }}
+      />
 
-        {/* Category + date eyebrow */}
-        <div className="text-caption mb-6 flex items-center gap-3">
-          {post.metadata.category && (
-            <>
-              <Badge variant="category">{post.metadata.category}</Badge>
-              <span className="text-border">·</span>
-            </>
-          )}
-          <time dateTime={post.metadata.publishedAt}>
-            {new Date(post.metadata.publishedAt).toLocaleDateString("en-GB", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-              timeZone: "UTC",
-            })}
-          </time>
-        </div>
+      {/* Category + date eyebrow */}
+      <div className="text-caption mb-6 flex items-center gap-3">
+        {post.metadata.category && (
+          <>
+            <Badge variant="category">{post.metadata.category}</Badge>
+            <span className="text-border">·</span>
+          </>
+        )}
+        <time dateTime={post.metadata.publishedAt}>
+          {new Date(post.metadata.publishedAt).toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+            timeZone: "UTC",
+          })}
+        </time>
+      </div>
 
-        <CopyArticleTitle>{post.metadata.title}</CopyArticleTitle>
+      <CopyArticleTitle>{post.metadata.title}</CopyArticleTitle>
 
-        <article className="prose w-full">
-          <CustomMDX source={post.content} />
-        </article>
+      <article className="prose w-full">
+        <CustomMDX source={post.content} />
+      </article>
     </Section>
   );
 }

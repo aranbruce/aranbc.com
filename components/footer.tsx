@@ -1,5 +1,4 @@
 import { ThemeToggle } from "./theme-toggle";
-import Button from "@/components/button";
 
 export function Footer() {
   return (
