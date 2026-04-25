@@ -4,6 +4,7 @@ import { CustomMDX } from "@/components/mdx";
 import { getBlogPosts } from "@/app/blog/utils";
 import { baseUrl } from "@/app/sitemap";
 import { Badge } from "@/components/badge";
+import Section from "@/components/section";
 
 interface Params {
   slug: string;
@@ -67,8 +68,7 @@ export default async function Blog(props: { params: Promise<Params> }) {
   }
 
   return (
-    <section className="flex flex-col items-center">
-      <div className="flex w-full max-w-2xl flex-col items-start px-6 pt-40 pb-24 md:px-8">
+    <Section className="*:max-w-2xl pb-24 md:px-8 lg:px-8">
         <script
           type="application/ld+json"
           suppressHydrationWarning
@@ -115,7 +115,6 @@ export default async function Blog(props: { params: Promise<Params> }) {
         <article className="prose w-full">
           <CustomMDX source={post.content} />
         </article>
-      </div>
-    </section>
+    </Section>
   );
 }

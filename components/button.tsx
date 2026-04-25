@@ -11,7 +11,7 @@ type ButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const variantClasses = {
-  primary: "btn-primary-glow shadow-lift",
+  primary: "button-primary-gradient shadow-lift",
   secondary:
     "border bg-button-secondary text-button-secondary-foreground hover:bg-button-secondary-hover",
 };

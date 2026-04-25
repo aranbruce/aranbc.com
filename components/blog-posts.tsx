@@ -7,7 +7,7 @@ export function BlogPosts() {
   );
 
   return (
-    <div className="flex flex-col">
+    <div className="flex w-full flex-col">
       {posts.map((post) => (
         <Link
           key={post.slug}

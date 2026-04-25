@@ -25,7 +25,7 @@ export function HeroSection() {
       {/* Hero */}
       <section className="relative flex flex-col items-center overflow-hidden border-b border-border-translucent">
         {/* Background gradient — indigo glow from top */}
-        <div className="hero-bg pointer-events-none absolute inset-0" />
+        <div className="glow-bg pointer-events-none absolute inset-0" />
         {/* Fade to bg at bottom */}
         <div className="hero-fade pointer-events-none absolute inset-x-0 bottom-0 h-48" />
 
@@ -67,7 +67,7 @@ export function HeroSection() {
           </p>
 
           {/* CTAs */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center justify-evenly gap-3">
             <Button asChild variant="primary">
               <a href="mailto:aranbruce@gmail.com">Get in touch</a>
             </Button>
@@ -108,7 +108,7 @@ export function HeroSection() {
             <div
               key={i}
               className={cn(
-                "flex flex-col gap-1.5 px-12 py-7",
+                "flex flex-col gap-1.5 px-5 py-7 md:px-12 lg:px-16",
                 i < 2 && "border-b border-border-translucent sm:border-r",
               )}
             >

@@ -7,8 +7,8 @@ import Button from "@/components/button";
 
 export function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-100 mx-auto mt-4 flex items-start justify-center">
-      <div className="mx-4 flex h-12 w-full max-w-5xl items-center rounded-full border border-border-subtle bg-background/60 px-3 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-100 mx-auto mt-3 flex items-start justify-center *:mx-5 *:max-w-5xl md:*:mx-12 lg:*:mx-24">
+      <div className="flex h-12 w-full items-center rounded-full border border-border-subtle bg-background/60 px-3 backdrop-blur-xl">
         {/* Left: logo */}
         <div className="flex flex-1 items-center">
           <Link

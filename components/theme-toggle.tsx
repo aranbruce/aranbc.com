@@ -55,12 +55,12 @@ export function ThemeToggle() {
   ];
 
   return (
-    <fieldset className="flex items-center gap-1 rounded-lg border border-border bg-card p-1 shadow-card">
+    <fieldset className="flex items-center gap-1 rounded-lg border-border-subtle bg-background/60 p-1 shadow-card backdrop-blur-xl">
       <legend className="sr-only">Select a display theme:</legend>
       {themes.map(({ value, label, icon: Icon }) => (
         <div
           key={value}
-          className="relative rounded-md has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-ring/40 has-focus-visible:outline-solid"
+          className="relative rounded-md has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-ring has-focus-visible:outline-solid"
         >
           <input
             type="radio"
@@ -76,8 +76,8 @@ export function ThemeToggle() {
             className={cn(
               "flex h-8 w-8 cursor-pointer items-center justify-center rounded-md transition-all duration-200 ease-in-out",
               theme === value
-                ? "btn-primary-glow"
-                : "bg-button-secondary/80 text-secondary-foreground/80 hover:bg-button-secondary-hover",
+                ? "bg-button-primary/40 text-button-primary-foreground"
+                : "bg-button-secondary text-secondary-foreground/80 hover:bg-button-secondary-hover",
             )}
           >
             <span className="sr-only">{label}</span>
