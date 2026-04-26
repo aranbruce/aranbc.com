@@ -13,7 +13,7 @@
 <circle cx="26" cy="12" r="4" fill="#F8D185"/>
 <circle cx="38" cy="12" r="4" fill="#87F3AC"/>
 <g clip-path="url(#clip1_2698_3754)">
-<rect width="480" height="254" transform="translate(0 22)" fill="#AFAFAF"/>
+<rect width="480" height="254" transform="translate(0 22)" fill="black"/>
 <g clip-path="url(#clip2_2698_3754)">
 <rect x="-56.9938" y="-66.7432" width="931.291" height="931.291" fill="url(#pattern0_2698_3754)"/>
 <g filter="url(#filter0_d_2698_3754)">

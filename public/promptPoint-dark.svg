@@ -95,7 +95,7 @@
 <ellipse cx="103.344" cy="142.282" rx="0.5" ry="0.508333" fill="white" fill-opacity="0.7"/>
 <ellipse cx="105.511" cy="142.282" rx="0.5" ry="0.508333" fill="white" fill-opacity="0.7"/>
 <g clip-path="url(#clip9_2698_3810)">
-<rect width="364.667" height="541.578" transform="translate(115.333 43.1816)" fill="#959595" fill-opacity="0.05"/>
+<rect width="364.667" height="541.578" transform="translate(115.333 43.1816)" fill="black"/>
 <mask id="path-61-inside-6_2698_3810" fill="white">
 <path d="M115.333 43.1816H480V57.5592H115.333V43.1816Z"/>
 </mask>
