@@ -28,7 +28,7 @@ export function CopyArticleTitle({
   return (
     <h1
       className={cn(
-        "mb-6 text-[clamp(1.75rem,4vw,2.5rem)] font-heading text-foreground",
+        "mb-6 text-[clamp(2rem,4vw,2.5rem)] font-heading text-foreground",
         className,
       )}
     >

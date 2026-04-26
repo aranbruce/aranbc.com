@@ -68,7 +68,7 @@ export default async function Blog(props: { params: Promise<Params> }) {
   }
 
   return (
-    <Section className="pb-24 *:max-w-2xl md:px-8 lg:px-8">
+    <Section className="pt-28 pb-24 *:max-w-2xl sm:pt-32 md:px-8 md:pt-32 lg:px-8">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -91,15 +91,9 @@ export default async function Blog(props: { params: Promise<Params> }) {
           }),
         }}
       />
+      <div className="flex flex-col gap-1">
+        <CopyArticleTitle>{post.metadata.title}</CopyArticleTitle>
 
-      {/* Category + date eyebrow */}
-      <div className="text-caption mb-6 flex items-center gap-3">
-        {post.metadata.category && (
-          <>
-            <Badge variant="category">{post.metadata.category}</Badge>
-            <span className="text-border">·</span>
-          </>
-        )}
         <time dateTime={post.metadata.publishedAt}>
           {new Date(post.metadata.publishedAt).toLocaleDateString("en-GB", {
             day: "numeric",
@@ -108,13 +102,11 @@ export default async function Blog(props: { params: Promise<Params> }) {
             timeZone: "UTC",
           })}
         </time>
+
+        <article className="prose w-full">
+          <CustomMDX source={post.content} />
+        </article>
       </div>
-
-      <CopyArticleTitle>{post.metadata.title}</CopyArticleTitle>
-
-      <article className="prose w-full">
-        <CustomMDX source={post.content} />
-      </article>
     </Section>
   );
 }
