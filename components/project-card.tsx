@@ -73,7 +73,8 @@ export function ProjectCard({
 
       <div
         className={cn(
-          "col-span-3 mt-auto flex flex-col items-end overflow-hidden pt-4 pl-4 transition-transform duration-300 ease-out group-hover:scale-[1.015]",
+          `col-span-3 mt-auto flex flex-col items-end overflow-hidden pl-4 transition-transform duration-300 ease-out group-hover:scale-[1.015]`,
+          isHorizontal ? "md:pt-16" : "",
         )}
       >
         {image}

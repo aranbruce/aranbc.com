@@ -31,7 +31,7 @@ export function HeroSection() {
 
         <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center gap-7 px-12 pt-44 pb-24 text-center">
           {/* Profile pill */}
-          <div className="shadow-lift inline-flex items-center gap-3 rounded-full border bg-card/30 p-1 pr-4 backdrop-blur-md">
+          <div className="shadow-lift inline-flex items-center gap-3 rounded-full border border-border-subtle/60 bg-card/30 p-1 pr-4 backdrop-blur-md">
             <Image
               src="/aran.png"
               alt="Aran Bruce-Caddick"
