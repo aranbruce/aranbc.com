@@ -3,7 +3,6 @@ import { CopyArticleTitle } from "@/components/copy-article-title";
 import { CustomMDX } from "@/components/mdx";
 import { getBlogPosts } from "@/app/blog/utils";
 import { baseUrl } from "@/app/sitemap";
-import { Badge } from "@/components/badge";
 import Section from "@/components/section";
 
 interface Params {
