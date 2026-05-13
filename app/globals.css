@@ -96,23 +96,6 @@
       var(--bg-transparent) 0%,
       var(--background) 100%
     );
-    --hero-glow:
-      radial-gradient(
-        ellipse 70% 55% at 50% 0%,
-        rgba(94, 106, 210, 0.22),
-        transparent 65%
-      ),
-      radial-gradient(
-        ellipse 50% 40% at 80% 10%,
-        rgba(94, 106, 210, 0.1),
-        transparent 60%
-      );
-    --footer-glow: radial-gradient(
-      ellipse at 50% 100%,
-      rgba(94, 106, 210, 0.14),
-      transparent 60%
-    );
-
     --shadow-lift:
       0 1px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.05);
 
@@ -157,23 +140,6 @@
     --bg-transparent: rgba(1, 1, 2, 0);
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-translucent: color-mix(in srgb, transparent 60%, #23252a);
-    --hero-glow:
-      radial-gradient(
-        ellipse 60% 50% at 50% -10%,
-        rgba(94, 106, 210, 0.22) 0%,
-        transparent 70%
-      ),
-      radial-gradient(
-        ellipse 40% 30% at 70% 5%,
-        rgba(94, 106, 210, 0.08) 0%,
-        transparent 60%
-      );
-    --footer-glow: radial-gradient(
-      ellipse 60% 80% at 50% 110%,
-      rgba(94, 106, 210, 0.22) 0%,
-      transparent 70%
-    );
-
     --shadow-lift: 0 1px 1px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.06);
 
     --gradient-text-foreground-from: #f7f8f8;
@@ -407,11 +373,27 @@
   }
 
   .glow-bg {
-    background: var(--hero-glow);
+    background:
+      radial-gradient(
+        ellipse 70% 55% at 50% 0%,
+        rgba(94, 106, 210, 0.22),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 50% 40% at 80% 10%,
+        rgba(94, 106, 210, 0.1),
+        transparent 60%
+      );
   }
 
   .glow-bg-inverted {
-    background: var(--footer-glow), var(--background);
+    background:
+      radial-gradient(
+        ellipse at 50% 100%,
+        rgba(94, 106, 210, 0.14),
+        transparent 60%
+      ),
+      var(--background);
   }
 
   .logo-gradient {

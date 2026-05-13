@@ -31,18 +31,18 @@ export function HeroSection() {
 
         <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center gap-7 px-12 pt-44 pb-24 text-center">
           {/* Profile pill */}
-          <div className="shadow-lift inline-flex items-center gap-3 rounded-full border border-border-subtle/60 bg-card/30 p-1 pr-4 backdrop-blur-md">
+          <div className="shadow-lift inline-flex items-center overflow-clip rounded-full border border-border-subtle/80 backdrop-blur-md">
             <Image
               src="/aran.png"
               alt="Aran Bruce-Caddick"
-              width={36}
-              height={36}
+              width={96}
+              height={96}
               priority
-              className="rounded-full border border-border-translucent bg-background object-cover"
+              className="glow-bg-inverted rounded-full object-cover"
             />
-            <span className="font-medium text-secondary-foreground">
+            {/* <span className="font-medium text-secondary-foreground">
               Aran Bruce-Caddick
-            </span>
+            </span> */}
           </div>
 
           {/* Headline */}
