@@ -67,8 +67,8 @@ export function ProjectsSection() {
       {/* Cards */}
       <div className="flex flex-col gap-5">
         <ProjectCard
-          href="https://greeting-cards-ai.vercel.app/"
-          title="Cards AI"
+          href="https://cardshare.ai/"
+          title="Card Share AI"
           description="Generate greeting cards with AI. Describe your card and the AI will generate a card for you."
           year="2026"
           layout="horizontal"
@@ -76,7 +76,7 @@ export function ProjectsSection() {
             <ThemedImage
               src="/cardsAi.svg"
               darkSrc="/cardsAi-dark.svg"
-              alt="Cards AI website in browser"
+              alt="Card Share AI website in browser"
               width={480}
               height={276}
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 600px"
