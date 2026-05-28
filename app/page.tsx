@@ -11,7 +11,7 @@ export default function Home() {
       <ProjectsSection />
 
       {/* Writing section */}
-      <Section className="gap-y-10 border-b border-border-translucent">
+      {/* <Section className="gap-y-10 border-b border-border-translucent">
         <div className="flex w-full flex-col items-start justify-between gap-6">
           <div className="max-w-md">
             <p className="text-eyebrow">— Writing</p>
@@ -25,7 +25,7 @@ export default function Home() {
           </p>
         </div>
         <BlogPosts />
-      </Section>
+      </Section> */}
       <Section className="glow-bg-inverted">
         <div className="relative flex w-full flex-col items-center overflow-hidden px-12 py-28 text-center">
           <h2 className="max-w-2xl text-[clamp(2rem,4vw,3.5rem)] leading-none font-heading tracking-tighter text-balance">
